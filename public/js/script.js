@@ -1,34 +1,28 @@
 // Mobile Navigation Toggle
 const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
+const mobileMenuOverlay = document.querySelector(".mobile-menu-overlay");
+const closeMenu = document.querySelector(".close-menu");
 
 if (hamburger) {
     hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
+        mobileMenuOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+    });
+}
 
-        // Animate hamburger
-        const spans = hamburger.querySelectorAll("span");
-        if (navMenu.classList.contains("active")) {
-            spans[0].style.transform = "rotate(45deg) translateY(10px)";
-            spans[1].style.opacity = "0";
-            spans[2].style.transform = "rotate(-45deg) translateY(-10px)";
-        } else {
-            spans[0].style.transform = "none";
-            spans[1].style.opacity = "1";
-            spans[2].style.transform = "none";
-        }
+if (closeMenu) {
+    closeMenu.addEventListener("click", () => {
+        mobileMenuOverlay.classList.remove("active");
+        document.body.style.overflow = "auto";
     });
 }
 
 // Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll(".nav-menu a");
-navLinks.forEach((link) => {
+const mobileNavLinks = document.querySelectorAll(".mobile-nav-menu a");
+mobileNavLinks.forEach((link) => {
     link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
-        const spans = hamburger.querySelectorAll("span");
-        spans[0].style.transform = "none";
-        spans[1].style.opacity = "1";
-        spans[2].style.transform = "none";
+        mobileMenuOverlay.classList.remove("active");
+        document.body.style.overflow = "auto";
     });
 });
 
@@ -135,15 +129,24 @@ cartButtons.forEach((button) => {
 });
 
 // Search functionality
-const searchBtn = document.querySelector(".search-btn");
-searchBtn.addEventListener("click", () => {
+const searchBtn = document.querySelector(".btn-search");
+const searchBtnMobile = document.querySelector(".btn-search-mobile");
+
+function handleSearch() {
     const searchQuery = prompt("Cari produk:");
     if (searchQuery) {
         console.log("Searching for:", searchQuery);
-        // Add your search logic here
         alert(`Mencari: ${searchQuery}`);
     }
-});
+}
+
+if (searchBtn) {
+    searchBtn.addEventListener("click", handleSearch);
+}
+
+if (searchBtnMobile) {
+    searchBtnMobile.addEventListener("click", handleSearch);
+}
 
 // Chat button
 const chatButton = document.querySelector(".chat-button");
