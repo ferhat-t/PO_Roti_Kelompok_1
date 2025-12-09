@@ -9,40 +9,41 @@
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
+        <div class="nav-container">
             <div class="nav-wrapper">
                 <div class="logo">
                     <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
+                    <div class="logo-text">
+                        <span class="logo-title">HOLLAND</span>
+                        <span class="logo-subtitle">Cakes, Bread & More...</span>
+                    </div>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#home">Menu</a></li>
-                    <li><a href="#social">Social</a></li>
-                    <li><a href="#store">Store</a></li>
-                    <li><a href="#promo">News & Promo</a></li>
-                    <li><a href="#moment">Choose Your Moment</a></li>
-                    <li><a href="#career">Career</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#home">MENU</a></li>
+                    <li><a href="#stores">STORES</a></li>
+                    <li><a href="#treats">TREATS</a></li>
+                    <li><a href="#b2b">B2B</a></li>
                 </ul>
-                <div class="nav-icons">
-                    <button class="icon-btn search-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                    <button class="icon-btn cart-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="nav-actions">
+                    <button class="btn-cart">
+                        CART
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="9" cy="21" r="1"></circle>
                             <circle cx="20" cy="21" r="1"></circle>
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
-                        <span class="cart-count">2</span>
                     </button>
-                    <button class="icon-btn user-btn">
+                    <button class="btn-login">LOGIN/SIGN UP</button>
+                    <button class="btn-location">
+                        Location
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                    </button>
+                    <button class="btn-search">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
                         </svg>
                     </button>
                     <button class="hamburger">
@@ -54,6 +55,55 @@
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-header">
+            <button class="close-menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="mobile-logo">
+                <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
+                <div class="logo-text">
+                    <span class="logo-title">HOLLAND</span>
+                    <span class="logo-subtitle">Cakes, Bread & More...</span>
+                </div>
+            </div>
+            <div class="mobile-actions-top">
+                <button class="btn-search-mobile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+                <button class="btn-cart-mobile">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu-content">
+            <button class="mobile-btn-location">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                CHOOSE LOCATION
+            </button>
+            <button class="mobile-btn-login">LOG IN</button>
+            <ul class="mobile-nav-menu">
+                <li><a href="#menu">MENU</a></li>
+                <li><a href="#stores">OUR STORES</a></li>
+                <li><a href="#treats">TREATS</a></li>
+                <li><a href="#b2b">B2B</a></li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
