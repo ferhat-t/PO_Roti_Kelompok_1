@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TI PASTRY - Pastry Terbaik Indonesia</title>
+    <title>INDEX Bakery - Bakery Terbaik Indonesia</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -14,7 +14,7 @@
                 <div class="logo">
                     <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
                     <div class="logo-text">
-                        <span class="logo-title">HOLLAND</span>
+                        <span class="logo-title">Index Bakery</span>
                         <span class="logo-subtitle">Cakes, Bread & More...</span>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     <li><a href="#home">MENU</a></li>
                     <li><a href="#stores">STORES</a></li>
                     <li><a href="#treats">TREATS</a></li>
-                    <li><a href="#b2b">B2B</a></li>
+                    <li><a href="#promo">NEWS & PROMOS</a></li>
                 </ul>
                 <div class="nav-actions">
                     <button class="btn-cart">
@@ -68,7 +68,7 @@
             <div class="mobile-logo">
                 <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
                 <div class="logo-text">
-                    <span class="logo-title">HOLLAND</span>
+                    <span class="logo-title">Index Bakery</span>
                     <span class="logo-subtitle">Cakes, Bread & More...</span>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 <li><a href="#menu">MENU</a></li>
                 <li><a href="#stores">OUR STORES</a></li>
                 <li><a href="#treats">TREATS</a></li>
-                <li><a href="#b2b">B2B</a></li>
+                <li><a href="#promo">NEWS & PROMOS</li>
             </ul>
         </div>
     </div>
@@ -297,9 +297,7 @@
             <div class="halal-content">
                 <h2 class="halal-title">HALAL CERTIFICATE BY LPPOM MUI PUSAT</h2>
                 <p class="halal-description">
-                    Sejak awal berdirinya Holland Bakery pada tahun 1978 hingga saat ini, Holland Bakery senantiasa 
-                    memproduksi makanan Halal bermutu bagi masyarakat Indonesia (tidak menggunakan bahan 
-                    baku mengandung babi dan turunannya).
+                    Index Bakery is proud to be certified halal by LPPOM MUI Pusat, ensuring that all our products meet the highest standards of halal compliance. We are committed to providing our customers with delicious and trustworthy baked goods that align with their values and dietary needs.
                 </p>
                 <button class="read-more-btn">Read More</button>
             </div>
@@ -358,16 +356,16 @@
                 </div>
                 <div class="footer-column delivery-info">
                     <div class="delivery-banner">
-                        <img src="{{ asset('images/delivery.png') }}" alt="Holland Delivery">
+                        <img src="{{ asset('images/delivery.png') }}" alt="Index Delivery">
                         <div class="delivery-text">
-                            <h3>Holland Delivery</h3>
+                            <h3>Index Delivery</h3>
                             <p class="delivery-phone">021-69181181</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Holland Bakery. All rights reserved.</p>
+                <p>&copy; 2025 Index Bakery. All rights reserved.</p>
             </div>
         </div>
     </footer>
