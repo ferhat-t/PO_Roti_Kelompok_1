@@ -201,7 +201,7 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('images/roti-bakso-sapi.png') }}" alt="Roti Bakso Sapi">
+                        <img src="{{ asset('/images/rotibaksosapi.jpg') }}" alt="rotibaksosapi">
                     </div>
                     <h3 class="product-name">Roti Bakso Sapi</h3>
                     <div class="product-price">
@@ -297,7 +297,7 @@
             <div class="halal-content">
                 <h2 class="halal-title">HALAL CERTIFICATE BY LPPOM MUI PUSAT</h2>
                 <p class="halal-description">
-                    Sejak awal berdirinya Holland Bakery pada tahun 1978 hingga saat ini, Holland Bakery senantiasa 
+                    Sejak awal berdirinya TI Pastry pada tahun 1978 hingga saat ini, Holland Bakery senantiasa 
                     memproduksi makanan Halal bermutu bagi masyarakat Indonesia (tidak menggunakan bahan 
                     baku mengandung babi dan turunannya).
                 </p>
@@ -360,14 +360,14 @@
                     <div class="delivery-banner">
                         <img src="{{ asset('images/delivery.png') }}" alt="Holland Delivery">
                         <div class="delivery-text">
-                            <h3>Holland Delivery</h3>
+                            <h3>TI Delivery</h3>
                             <p class="delivery-phone">021-69181181</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Holland Bakery. All rights reserved.</p>
+                <p>&copy; 2025 TI Pastry. All rights reserved.</p>
             </div>
         </div>
     </footer>
