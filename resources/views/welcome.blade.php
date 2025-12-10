@@ -12,7 +12,7 @@
         <div class="nav-container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
+                    <img src="{{ asset('image/logo.png') }}" alt="Holland Bakery">
                     <div class="logo-text">
                         <span class="logo-title">Index Bakery</span>
                         <span class="logo-subtitle">Cakes, Bread & More...</span>
@@ -66,9 +66,13 @@
                 </svg>
             </button>
             <div class="mobile-logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
+                <img src="{{ asset('image/logo.png') }}" alt="Holland Bakery">
                 <div class="logo-text">
+<<<<<<< HEAD
                     <span class="logo-title">Index Bakery</span>
+=======
+                    <span class="logo-title">INDEKS BAKERY</span>
+>>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
                     <span class="logo-subtitle">Cakes, Bread & More...</span>
                 </div>
             </div>
@@ -115,7 +119,7 @@
                 <h1 class="hero-title">WISHING YOU SERENITY THIS HOLIDAY SEASON AND<br>A NEW YEAR FILLED WITH RADIANT LOVE</h1>
                 <div class="hero-products">
                     <div class="product-display">
-                        <img src="{{ asset('images/gift-tower-1.png') }}" alt="Gift Tower 1">
+                        <img src="{{ asset('image/tower.jpg') }}" alt="Gift Tower 1">
                     </div>
                     <div class="product-display">
                         <img src="{{ asset('images/gift-box-1.png') }}" alt="Gift Box 1">
@@ -135,7 +139,7 @@
                 </div>
             </div>
             <div class="halal-badge">
-                <img src="{{ asset('images/halal-badge.png') }}" alt="Halal Certified">
+                <img src="{{ asset('image/logohalal.png') }}" alt="Halal Certified">
             </div>
         </div>
     </section>
@@ -155,19 +159,19 @@
             <div class="categories-grid">
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('images/christmas-2025.png') }}" alt="Christmas 2025">
+                        <img src="{{ asset('image/rotinatal.jpg') }}" alt="Christmas 2025">
                     </div>
                     <h3 class="category-name">Christmas 2025</h3>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('images/breads.png') }}" alt="Breads">
+                        <img src="{{ asset('image/bread.jpg') }}" alt="Breads">
                     </div>
                     <h3 class="category-name">Breads</h3>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('images/traditional-snacks.png') }}" alt="Traditional Snacks">
+                        <img src="{{ asset('image/tradisionalsnack.jpg') }}" alt="Traditional Snacks">
                     </div>
                     <h3 class="category-name">Traditional Snacks</h3>
                 </div>
@@ -201,9 +205,9 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('images/roti-bakso-sapi.png') }}" alt="Roti Bakso Sapi">
+                        <img src="{{ asset('image/croisan.jpg') }}" alt="Roti Croisant">
                     </div>
-                    <h3 class="product-name">Roti Bakso Sapi</h3>
+                    <h3 class="product-name">Roti Croissant</h3>
                     <div class="product-price">
                         <span class="price-old">Rp. 16.300</span>
                         <span class="price-current">Rp. 14.900</span>
@@ -215,7 +219,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('images/singapore-kaya-toast.png') }}" alt="Singapore Kaya Toast">
+                        <img src="{{ asset('image/singapurekayatoast.jpg') }}" alt="Singapore Kaya Toast">
                     </div>
                     <h3 class="product-name">Singapore Kaya Toast</h3>
                     <div class="product-price">
@@ -230,9 +234,9 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('images/roti-coklat.png') }}" alt="Roti Coklat">
+                        <img src="{{ asset('image/roti.jpg') }}" alt="Roti Gandum">
                     </div>
-                    <h3 class="product-name">Roti Coklat</h3>
+                    <h3 class="product-name">Roti Gandum</h3>
                     <div class="product-price">
                         <span class="price-old">Rp. 11.900</span>
                         <span class="price-current">Rp. 10.900</span>
@@ -245,12 +249,12 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('images/danish-coklat-belepotan.png') }}" alt="Danish Coklat Belepotan">
+                        <img src="{{ asset('image/blueberypastry.jpg') }}" alt="Bluebery Pastry">
                     </div>
-                    <h3 class="product-name">Danish Coklat Belepotan</h3>
+                    <h3 class="product-name">Bluberry Pastry</h3>
                     <div class="product-price">
-                        <span class="price-old">Rp. 19.400</span>
-                        <span class="price-current">Rp. 17.700</span>
+                        <span class="price-old">Rp. 35.000</span>
+                        <span class="price-current">Rp. 25.000</span>
                     </div>
                     <div class="product-rating">
                         <span>⭐⭐⭐⭐⭐</span>
@@ -297,7 +301,13 @@
             <div class="halal-content">
                 <h2 class="halal-title">HALAL CERTIFICATE BY LPPOM MUI PUSAT</h2>
                 <p class="halal-description">
+<<<<<<< HEAD
                     Index Bakery is proud to be certified halal by LPPOM MUI Pusat, ensuring that all our products meet the highest standards of halal compliance. We are committed to providing our customers with delicious and trustworthy baked goods that align with their values and dietary needs.
+=======
+                    Sejak awal berdirinya TI Pastry pada tahun 1978 hingga saat ini, Holland Bakery senantiasa 
+                    memproduksi makanan Halal bermutu bagi masyarakat Indonesia (tidak menggunakan bahan 
+                    baku mengandung babi dan turunannya).
+>>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
                 </p>
                 <button class="read-more-btn">Read More</button>
             </div>
@@ -358,14 +368,22 @@
                     <div class="delivery-banner">
                         <img src="{{ asset('images/delivery.png') }}" alt="Index Delivery">
                         <div class="delivery-text">
+<<<<<<< HEAD
                             <h3>Index Delivery</h3>
+=======
+                            <h3>TI Delivery</h3>
+>>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
                             <p class="delivery-phone">021-69181181</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
+<<<<<<< HEAD
                 <p>&copy; 2025 Index Bakery. All rights reserved.</p>
+=======
+                <p>&copy; 2025 TI Pastry. All rights reserved.</p>
+>>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
             </div>
         </div>
     </footer>
