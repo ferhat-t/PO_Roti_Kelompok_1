@@ -68,7 +68,7 @@
             <div class="mobile-logo">
                 <img src="{{ asset('image/logo.png') }}" alt="Holland Bakery">
                 <div class="logo-text">
-                    <span class="logo-title">HOLLAND</span>
+                    <span class="logo-title">INDEKS BAKERY</span>
                     <span class="logo-subtitle">Cakes, Bread & More...</span>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                 <h1 class="hero-title">WISHING YOU SERENITY THIS HOLIDAY SEASON AND<br>A NEW YEAR FILLED WITH RADIANT LOVE</h1>
                 <div class="hero-products">
                     <div class="product-display">
-                        <img src="{{ asset('images/gift-tower-1.png') }}" alt="Gift Tower 1">
+                        <img src="{{ asset('image/tower.jpg') }}" alt="Gift Tower 1">
                     </div>
                     <div class="product-display">
                         <img src="{{ asset('images/gift-box-1.png') }}" alt="Gift Box 1">
@@ -135,7 +135,7 @@
                 </div>
             </div>
             <div class="halal-badge">
-                <img src="{{ asset('images/halal-badge.png') }}" alt="Halal Certified">
+                <img src="{{ asset('image/logohalal.png') }}" alt="Halal Certified">
             </div>
         </div>
     </section>
@@ -155,19 +155,19 @@
             <div class="categories-grid">
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('images/christmas-2025.png') }}" alt="Christmas 2025">
+                        <img src="{{ asset('image/rotinatal.jpg') }}" alt="Christmas 2025">
                     </div>
                     <h3 class="category-name">Christmas 2025</h3>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('images/breads.png') }}" alt="Breads">
+                        <img src="{{ asset('image/bread.jpg') }}" alt="Breads">
                     </div>
                     <h3 class="category-name">Breads</h3>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('images/traditional-snacks.png') }}" alt="Traditional Snacks">
+                        <img src="{{ asset('image/tradisionalsnack.jpg') }}" alt="Traditional Snacks">
                     </div>
                     <h3 class="category-name">Traditional Snacks</h3>
                 </div>
@@ -230,9 +230,9 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('image/roticoklat.jpg') }}" alt="Roti Coklat">
+                        <img src="{{ asset('image/roti.jpg') }}" alt="Roti Gandum">
                     </div>
-                    <h3 class="product-name">Roti Coklat</h3>
+                    <h3 class="product-name">Roti Gandum</h3>
                     <div class="product-price">
                         <span class="price-old">Rp. 11.900</span>
                         <span class="price-current">Rp. 10.900</span>
