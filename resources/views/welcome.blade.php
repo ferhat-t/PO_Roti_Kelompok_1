@@ -33,8 +33,12 @@
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
                     </button>
-                    <button class="btn-login">LOGIN/SIGN UP</button>
+                
                     <button class="btn-location">
+                        <a href="{{ route('login') }}" class="btn-login">Login</a>
+                        <a href="{{ route('sign') }}">Sign</a>
+
+
                         Location
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -379,6 +383,7 @@
         </svg>
     </button>
 
+    
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
