@@ -12,7 +12,7 @@
         <div class="nav-container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
+                    <img src="{{ asset('image/logo.png') }}" alt="Holland Bakery">
                     <div class="logo-text">
                         <span class="logo-title">HOLLAND</span>
                         <span class="logo-subtitle">Cakes, Bread & More...</span>
@@ -66,7 +66,7 @@
                 </svg>
             </button>
             <div class="mobile-logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Holland Bakery">
+                <img src="{{ asset('image/logo.png') }}" alt="Holland Bakery">
                 <div class="logo-text">
                     <span class="logo-title">HOLLAND</span>
                     <span class="logo-subtitle">Cakes, Bread & More...</span>
@@ -201,9 +201,9 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('/images/rotibaksosapi.jpg') }}" alt="rotibaksosapi">
+                        <img src="{{ asset('image/croisan.jpg') }}" alt="Roti Croisant">
                     </div>
-                    <h3 class="product-name">Roti Bakso Sapi</h3>
+                    <h3 class="product-name">Roti Croissant</h3>
                     <div class="product-price">
                         <span class="price-old">Rp. 16.300</span>
                         <span class="price-current">Rp. 14.900</span>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('images/singapore-kaya-toast.png') }}" alt="Singapore Kaya Toast">
+                        <img src="{{ asset('image/singapurekayatoast.jpg') }}" alt="Singapore Kaya Toast">
                     </div>
                     <h3 class="product-name">Singapore Kaya Toast</h3>
                     <div class="product-price">
@@ -230,7 +230,7 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('images/roti-coklat.png') }}" alt="Roti Coklat">
+                        <img src="{{ asset('image/roticoklat.jpg') }}" alt="Roti Coklat">
                     </div>
                     <h3 class="product-name">Roti Coklat</h3>
                     <div class="product-price">
@@ -245,12 +245,12 @@
                 <div class="product-card">
                     <div class="product-badge">👍</div>
                     <div class="product-image">
-                        <img src="{{ asset('images/danish-coklat-belepotan.png') }}" alt="Danish Coklat Belepotan">
+                        <img src="{{ asset('image/blueberypastry.jpg') }}" alt="Bluebery Pastry">
                     </div>
-                    <h3 class="product-name">Danish Coklat Belepotan</h3>
+                    <h3 class="product-name">Bluberry Pastry</h3>
                     <div class="product-price">
-                        <span class="price-old">Rp. 19.400</span>
-                        <span class="price-current">Rp. 17.700</span>
+                        <span class="price-old">Rp. 35.000</span>
+                        <span class="price-current">Rp. 25.000</span>
                     </div>
                     <div class="product-rating">
                         <span>⭐⭐⭐⭐⭐</span>
