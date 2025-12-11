@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDEX Bakery - Bakery Terbaik Indonesia</title>
+    <title>TI PASTRY - Pastry Terbaik Indonesia</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -22,7 +22,7 @@
                     <li><a href="#home">HOME</a></li>
                     <li><a href="#menu">PRODUCT</a></li>
                     <li><a href="#preorder">PRE-ORDER</a></li>
-                    <li><a href="pickuppoint.blade.php">Pickup Points</a></li>
+                    <li><a href="#pickuppoints">Pickup Points</a></li>
                     <li><a href="#myorder">MY ORDER</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -261,13 +261,13 @@
                 <button class="slider-btn prev-btn">‹</button>
                 <div class="promo-slides">
                     <div class="promo-slide active">
-                        <img src="{{ asset('image/blueberypastry.jpg') }}" alt="Promo 1">
+                        <img src="{{ asset('image/promo1.jpg') }}" alt="Promo 1">
                     </div>
                     <div class="promo-slide">
-                        <img src="{{ asset('image/shortcrustpastry.jpg') }}" alt="Promo 2">
+                        <img src="{{ asset('image/promo2.jpg') }}" alt="Promo 2">
                     </div>
                     <div class="promo-slide">
-                        <img src="{{ asset('image/croisan.jpg') }}" alt="Promo 3">
+                        <img src="{{ asset('image/promo3.jpg') }}" alt="Promo 3">
                     </div>
                 </div>
                 <button class="slider-btn next-btn">›</button>
