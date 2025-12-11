@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #d4a5ac, #c59398, #b9828c);
+        }
+
+        .login-box {
+            width: 360px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 18px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #7a3c44;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border: 2px solid #d8a6ad;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #b56672;
+            box-shadow: 0 0 8px rgba(181, 102, 114, 0.5);
+        }
+
+        .btn-login {
+            width: 100%;
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 30px;
+            border: 2px solid white;
+            background: #b56672;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background: white;
+            color: #b56672;
+            border-color: #b56672;
+        }
+
+        .footer-text {
+            margin-top: 18px;
+            font-size: 14px;
+            color: #7a3c44;
+        }
+
+        .footer-text a {
+            color: #4a1e24;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+
+    <button class="btn-login">LOGIN</button>
+
+    <div class="footer-text">
+        Belum punya akun? <a href="/sign">Sign</a>
+    </div>
+</div>
+
+</body>
+</html>
