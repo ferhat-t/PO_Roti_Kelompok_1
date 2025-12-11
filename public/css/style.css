@@ -30,7 +30,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background: linear-gradient(135deg, #e84118 0%, #e84118 100%);
+    background: linear-gradient(135deg, #a6ff02 0%, #a6ff02 100%);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -739,7 +739,7 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--primary-color);
+    background: #a6ff02;
     color: white;
     padding: 50px 0 20px;
 }
