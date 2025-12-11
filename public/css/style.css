@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #A68A64;
+    --primary-color: #a68a64;
     --secondary-color: #1e3a8a;
     --text-dark: #2c3e50;
     --text-light: #7f8c8d;
@@ -30,11 +30,7 @@ body {
 
 /* Navigation */
 .navbar {
-<<<<<<< HEAD
-    background: linear-gradient(135deg, #a6ff02 0%, #a6ff02 100%);
-=======
-    background: linear-gradient(135deg, #A68A64 0%, #A68A64 100%);
->>>>>>> 7ad959591d0f502c0915880d54499d69f801d303
+    background: linear-gradient(135deg, #a68a64 0%, #a68a64 100%);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -391,13 +387,11 @@ body {
 }
 
 .christmas-decorations img {
-
     width: 100%;
     height: auto;
     display: block;
     padding: 0px;
-    object-fit: cover; 
-
+    object-fit: cover;
 }
 
 .hero-title {
@@ -634,7 +628,7 @@ body {
 }
 
 .add-to-cart:hover {
-    background: #A68A64;
+    background: #a68a64;
 }
 
 /* Promo Section */
@@ -728,7 +722,6 @@ body {
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 30px;
-    
 }
 
 .read-more-btn {
@@ -744,12 +737,12 @@ body {
 }
 
 .read-more-btn:hover {
-    background: #A68A64;
+    background: #a68a64;
 }
 
 /* Footer */
 .footer {
-    background: #a6ff02;
+    background: #a68a64;
     color: white;
     padding: 50px 0 20px;
 }

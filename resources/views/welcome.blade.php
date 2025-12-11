@@ -73,11 +73,7 @@
             <div class="mobile-logo">
                 <img src="{{ asset('image/logotipastry.png') }}" alt="logotipastry">
                 <div class="logo-text">
-<<<<<<< HEAD
-                    <span class="logo-title">Ti Pastry</span>
-=======
                     <span class="logo-title">TI PASTRY</span>
->>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
                     <span class="logo-subtitle">The Best Pastries In Town</span>
                 </div>
             </div>
@@ -285,13 +281,7 @@
             <div class="halal-content">
                 <h2 class="halal-title">HALAL CERTIFICATE BY LPPOM MUI PUSAT</h2>
                 <p class="halal-description">
-<<<<<<< HEAD
-                    Index Bakery is proud to be certified halal by LPPOM MUI Pusat, ensuring that all our products meet the highest standards of halal compliance. We are committed to providing our customers with delicious and trustworthy baked goods that align with their values and dietary needs.
-=======
-                    Sejak awal berdirinya TI Pastry pada tahun 1978 hingga saat ini, Holland Bakery senantiasa 
-                    memproduksi makanan Halal bermutu bagi masyarakat Indonesia (tidak menggunakan bahan 
-                    baku mengandung babi dan turunannya).
->>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
+                    TI PASTRY is proud to be certified halal by LPPOM MUI Pusat, ensuring that all our products meet the highest standards of halal compliance. We are committed to providing our customers with delicious and trustworthy baked goods that align with their values and dietary needs.
                 </p>
                 <button class="read-more-btn">Read More</button>
             </div>
@@ -352,22 +342,14 @@
                     <div class="delivery-banner">
                         <img src="{{ asset('images/delivery.png') }}" alt="Index Delivery">
                         <div class="delivery-text">
-<<<<<<< HEAD
-                            <h3>Index Delivery</h3>
-=======
                             <h3>TI Delivery</h3>
->>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
                             <p class="delivery-phone">021-69181181</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-<<<<<<< HEAD
-                <p>&copy; 2025 Index Bakery. All rights reserved.</p>
-=======
                 <p>&copy; 2025 TI Pastry. All rights reserved.</p>
->>>>>>> 82312801e39d8bcb68995accc7f4892a05350c5f
             </div>
         </div>
     </footer>
