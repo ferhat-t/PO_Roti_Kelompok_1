@@ -269,6 +269,9 @@
                     <div class="promo-slide">
                         <img src="{{ asset('image/promo3.jpg') }}" alt="Promo 3">
                     </div>
+                    <div class="promo-slide">
+                        <img src="{{ asset('image/promo4.png') }}" alt="Promo 4">
+                    </div>
                 </div>
                 <button class="slider-btn next-btn">›</button>
             </div>
