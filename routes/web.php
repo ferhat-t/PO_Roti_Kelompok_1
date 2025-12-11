@@ -18,4 +18,6 @@ Route::get('/', function () {
 
 });
 
+
+
 Route::get('/location', [LocationController::class, 'index'])->name('location.index');

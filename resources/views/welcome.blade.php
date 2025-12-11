@@ -20,9 +20,9 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home">HOME</a></li>
-                    <li><a href="#products">PRODUCT</a></li>
+                    <li><a href="#menu">PRODUCT</a></li>
                     <li><a href="#preorder">PRE-ORDER</a></li>
-                    <li><a href="#pickuppoints">Pickup Points</a></li>
+                    <li><a href="pickuppoint.blade.php">Pickup Points</a></li>
                     <li><a href="#myorder">MY ORDER</a></li>
                 </ul>
                 <div class="nav-actions">
@@ -103,7 +103,7 @@
             <button class="mobile-btn-login">LOG IN</button>
             <ul class="mobile-nav-menu">
                <li><a href="#">HOME</a></li>
-                <li><a href="#products">PRODUCT</a></li>
+                <li><a href="#menu">PRODUCT</a></li>
                 <li><a href="#preorder">PRE-ORDER</a></li>
                 <li><a href="#pickuppoints">Pickup Points</a></li>
                 <li><a href="#myorder">MY ORDER</a></li>
@@ -199,9 +199,9 @@
                 </div>
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="{{ asset('image/singapurekayatoast.jpg') }}" alt="Singapore Kaya Toast">
+                        <img src="{{ asset('image/cromboloni.png') }}" alt="Cromboloni">
                     </div>
-                    <h3 class="product-name">Singapore Kaya Toast</h3>
+                    <h3 class="product-name">Cromboloni</h3>
                     <div class="product-price">
                         <span class="price-old">Rp. 18.700</span>
                         <span class="price-current">Rp. 17.000</span>
@@ -261,13 +261,13 @@
                 <button class="slider-btn prev-btn">‹</button>
                 <div class="promo-slides">
                     <div class="promo-slide active">
-                        <img src="{{ asset('images/promo-1.jpg') }}" alt="Promo 1">
+                        <img src="{{ asset('image/blueberypastry.jpg') }}" alt="Promo 1">
                     </div>
                     <div class="promo-slide">
-                        <img src="{{ asset('images/promo-2.jpg') }}" alt="Promo 2">
+                        <img src="{{ asset('image/shortcrustpastry.jpg') }}" alt="Promo 2">
                     </div>
                     <div class="promo-slide">
-                        <img src="{{ asset('images/promo-3.jpg') }}" alt="Promo 3">
+                        <img src="{{ asset('image/croisan.jpg') }}" alt="Promo 3">
                     </div>
                 </div>
                 <button class="slider-btn next-btn">›</button>
@@ -329,24 +329,9 @@
                             </svg>
                         </a>
                     </div>
-                    <div class="app-downloads">
-                        <a href="#" class="app-store">
-                            <img src="{{ asset('images/google-play.png') }}" alt="Get it on Google Play">
-                        </a>
-                        <a href="#" class="app-store">
-                            <img src="{{ asset('images/app-store.png') }}" alt="Download on App Store">
-                        </a>
-                    </div>
+                   
                 </div>
-                <div class="footer-column delivery-info">
-                    <div class="delivery-banner">
-                        <img src="{{ asset('images/delivery.png') }}" alt="Index Delivery">
-                        <div class="delivery-text">
-                            <h3>TI Delivery</h3>
-                            <p class="delivery-phone">021-69181181</p>
-                        </div>
-                    </div>
-                </div>
+             
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 TI Pastry. All rights reserved.</p>
