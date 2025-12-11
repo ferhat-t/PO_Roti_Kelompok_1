@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TI PASTRY - Pastry Terbaik Indonesia</title>
+    <title>INDEX Bakery - Bakery Terbaik Indonesia</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
@@ -12,17 +12,18 @@
         <div class="nav-container">
             <div class="nav-wrapper">
                 <div class="logo">
-                    <img src="{{ asset('image/logo.png') }}" alt="Holland Bakery">
+                    <img src="{{ asset('image/logotipastry.png') }}" alt="logotipastry">
                     <div class="logo-text">
-                        <span class="logo-title">HOLLAND</span>
-                        <span class="logo-subtitle">Cakes, Bread & More...</span>
+                        <span class="logo-title">TI PASTRY</span>
+                        <span class="logo-subtitle">The Best Pastries In Town</span>
                     </div>
                 </div>
                 <ul class="nav-menu">
-                    <li><a href="#home">MENU</a></li>
-                    <li><a href="#stores">STORES</a></li>
-                    <li><a href="#treats">TREATS</a></li>
-                    <li><a href="#b2b">B2B</a></li>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#products">PRODUCT</a></li>
+                    <li><a href="#preorder">PRE-ORDER</a></li>
+                    <li><a href="#pickuppoints">Pickup Points</a></li>
+                    <li><a href="#myorder">MY ORDER</a></li>
                 </ul>
                 <div class="nav-actions">
                     <button class="btn-cart">
@@ -33,8 +34,12 @@
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
                     </button>
-                    <button class="btn-login">LOGIN/SIGN UP</button>
+                
                     <button class="btn-location">
+                        <a href="{{ route('login') }}" class="btn-login">Login</a>
+                        <a href="{{ route('sign') }}">Sign</a>
+
+
                         Location
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -66,10 +71,10 @@
                 </svg>
             </button>
             <div class="mobile-logo">
-                <img src="{{ asset('image/logo.png') }}" alt="Holland Bakery">
+                <img src="{{ asset('image/logotipastry.png') }}" alt="logotipastry">
                 <div class="logo-text">
-                    <span class="logo-title">INDEKS BAKERY</span>
-                    <span class="logo-subtitle">Cakes, Bread & More...</span>
+                    <span class="logo-title">TI PASTRY</span>
+                    <span class="logo-subtitle">The Best Pastries In Town</span>
                 </div>
             </div>
             <div class="mobile-actions-top">
@@ -97,10 +102,11 @@
             </button>
             <button class="mobile-btn-login">LOG IN</button>
             <ul class="mobile-nav-menu">
-                <li><a href="#menu">MENU</a></li>
-                <li><a href="#stores">OUR STORES</a></li>
-                <li><a href="#treats">TREATS</a></li>
-                <li><a href="#b2b">B2B</a></li>
+               <li><a href="#">HOME</a></li>
+                <li><a href="#products">PRODUCT</a></li>
+                <li><a href="#preorder">PRE-ORDER</a></li>
+                <li><a href="#pickuppoints">Pickup Points</a></li>
+                <li><a href="#myorder">MY ORDER</a></li>
             </ul>
         </div>
     </div>
@@ -109,31 +115,9 @@
     <section class="hero" id="home">
         <div class="hero-border">
             <div class="christmas-decorations">
-                <img src="{{ asset('images/christmas-decor.png') }}" alt="Christmas Decorations">
+                <img src="{{ asset('image/tipastryfront.png') }}" alt="tipastryfront">
             </div>
-            <div class="hero-content">
-                <h1 class="hero-title">WISHING YOU SERENITY THIS HOLIDAY SEASON AND<br>A NEW YEAR FILLED WITH RADIANT LOVE</h1>
-                <div class="hero-products">
-                    <div class="product-display">
-                        <img src="{{ asset('image/tower.jpg') }}" alt="Gift Tower 1">
-                    </div>
-                    <div class="product-display">
-                        <img src="{{ asset('images/gift-box-1.png') }}" alt="Gift Box 1">
-                    </div>
-                    <div class="product-display">
-                        <img src="{{ asset('images/gift-basket-1.png') }}" alt="Gift Basket 1">
-                    </div>
-                    <div class="product-display">
-                        <img src="{{ asset('images/gift-basket-2.png') }}" alt="Gift Basket 2">
-                    </div>
-                    <div class="product-display">
-                        <img src="{{ asset('images/gift-box-2.png') }}" alt="Gift Box 2">
-                    </div>
-                    <div class="product-display">
-                        <img src="{{ asset('images/gift-tower-2.png') }}" alt="Gift Tower 2">
-                    </div>
-                </div>
-            </div>
+           
             <div class="halal-badge">
                 <img src="{{ asset('image/logohalal.png') }}" alt="Halal Certified">
             </div>
@@ -145,7 +129,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-icon">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#E84118">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#a68a64">
                         <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z"/>
                         <path d="M9 17l1.5-4.5L15 11l-4.5-1.5L9 5l-1.5 4.5L3 11l4.5 1.5z"/>
                     </svg>
@@ -155,21 +139,21 @@
             <div class="categories-grid">
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('image/rotinatal.jpg') }}" alt="Christmas 2025">
+                        <img src="{{ asset('image/croisan.jpg') }}" alt="CROISSANT">
                     </div>
-                    <h3 class="category-name">Christmas 2025</h3>
+                    <h3 class="category-name">Puff Pastry</h3>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('image/bread.jpg') }}" alt="Breads">
+                        <img src="{{ asset('image/shortcrustpastry.jpg') }}" alt="Shortcrust Pastry">
                     </div>
-                    <h3 class="category-name">Breads</h3>
+                    <h3 class="category-name">Shortcrust Pastry</h3>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="{{ asset('image/tradisionalsnack.jpg') }}" alt="Traditional Snacks">
+                        <img src="{{ asset('image/danishpastry.png') }}" alt="Danish Pastry">
                     </div>
-                    <h3 class="category-name">Traditional Snacks</h3>
+                    <h3 class="category-name">Danish Pastry</h3>
                 </div>
             </div>
         </div>
@@ -180,7 +164,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-icon">
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#E84118">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="#a68a64">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
                         <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/>
                     </svg>
@@ -297,9 +281,7 @@
             <div class="halal-content">
                 <h2 class="halal-title">HALAL CERTIFICATE BY LPPOM MUI PUSAT</h2>
                 <p class="halal-description">
-                    Sejak awal berdirinya TI Pastry pada tahun 1978 hingga saat ini, Holland Bakery senantiasa 
-                    memproduksi makanan Halal bermutu bagi masyarakat Indonesia (tidak menggunakan bahan 
-                    baku mengandung babi dan turunannya).
+                    TI PASTRY is proud to be certified halal by LPPOM MUI Pusat, ensuring that all our products meet the highest standards of halal compliance. We are committed to providing our customers with delicious and trustworthy baked goods that align with their values and dietary needs.
                 </p>
                 <button class="read-more-btn">Read More</button>
             </div>
@@ -358,7 +340,7 @@
                 </div>
                 <div class="footer-column delivery-info">
                     <div class="delivery-banner">
-                        <img src="{{ asset('images/delivery.png') }}" alt="Holland Delivery">
+                        <img src="{{ asset('images/delivery.png') }}" alt="Index Delivery">
                         <div class="delivery-text">
                             <h3>TI Delivery</h3>
                             <p class="delivery-phone">021-69181181</p>
@@ -379,6 +361,7 @@
         </svg>
     </button>
 
+    
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

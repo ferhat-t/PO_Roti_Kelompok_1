@@ -6,7 +6,7 @@
 }
 
 :root {
-    --primary-color: #e84118;
+    --primary-color: #a68a64;
     --secondary-color: #1e3a8a;
     --text-dark: #2c3e50;
     --text-light: #7f8c8d;
@@ -30,7 +30,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background: linear-gradient(135deg, #d4a5a5 0%, #c89b9b 100%);
+    background: linear-gradient(135deg, #a68a64 0%, #a68a64 100%);
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -139,7 +139,7 @@ body {
 }
 
 .btn-login {
-    background: #d4a5a5;
+    background: #5f492d;
     border: 2px solid white;
     color: white;
     padding: 10px 25px;
@@ -154,7 +154,7 @@ body {
 
 .btn-login:hover {
     background: white;
-    color: #d4a5a5;
+    color: #5f492d;
     transform: translateY(-2px);
 }
 
@@ -330,7 +330,7 @@ body {
 }
 
 .mobile-btn-login {
-    background: #d4a5a5;
+    background: #5f492d;
     color: white;
 }
 
@@ -339,7 +339,7 @@ body {
 }
 
 .mobile-btn-login:hover {
-    background: #c89b9b;
+    background: #5f492d;
 }
 
 .mobile-nav-menu {
@@ -376,19 +376,22 @@ body {
 
 .hero-border {
     border: 4px double #b8860b;
-    padding: 30px;
+    padding: 0px;
     position: relative;
     background: white;
 }
 
 .christmas-decorations {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .christmas-decorations img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    display: block;
+    padding: 0px;
+    object-fit: cover;
 }
 
 .hero-title {
@@ -625,7 +628,7 @@ body {
 }
 
 .add-to-cart:hover {
-    background: #c23616;
+    background: #a68a64;
 }
 
 /* Promo Section */
@@ -734,12 +737,12 @@ body {
 }
 
 .read-more-btn:hover {
-    background: #c23616;
+    background: #a68a64;
 }
 
 /* Footer */
 .footer {
-    background: var(--primary-color);
+    background: #a68a64;
     color: white;
     padding: 50px 0 20px;
 }
