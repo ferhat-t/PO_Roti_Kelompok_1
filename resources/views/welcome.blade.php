@@ -21,7 +21,7 @@
                 <ul class="nav-menu">
                     <li><a href="#home">HOME</a></li>
                     <li><a href="#menu">PRODUCT</a></li>
-                    <li><a href="#preorder">PRE-ORDER</a></li>
+                    <li><a href="{{ route('preorder') }}" class="active">PRE-ORDER</a></li>
                     <li><a href="#pickuppoints">Pickup Points</a></li>
                     <li><a href="#myorder">MY ORDER</a></li>
                 </ul>

@@ -257,3 +257,148 @@ document.querySelectorAll("img").forEach((img) => {
         e.preventDefault();
     });
 });
+
+// ========================================
+// PREORDER VALIDATION SYSTEM
+// ========================================
+
+// Konfigurasi jadwal pre-order
+const orderSchedules = {
+    morning: {
+        name: 'Morning Batch',
+        days: [1, 2, 3, 4, 5], // Senin - Jumat (0=Minggu, 1=Senin, dst)
+        startHour: 18,
+        endHour: 22,
+        orderUrl: '/preorder/morning' // ← GANTI SESUAI ROUTE LARAVEL ANDA
+    },
+    afternoon: {
+        name: 'Afternoon Batch',
+        days: [1, 2, 3, 4, 5, 6], // Senin - Sabtu
+        startHour: 6,
+        endHour: 11,
+        orderUrl: '/preorder/afternoon' // ← GANTI SESUAI ROUTE LARAVEL ANDA
+    },
+    weekend: {
+        name: 'Weekend Special',
+        days: [0, 6], // Sabtu - Minggu
+        startHour: 8,
+        endHour: 14,
+        orderUrl: '/preorder/weekend' // ← GANTI SESUAI ROUTE LARAVEL ANDA
+    }
+};
+
+/**
+ * Fungsi utama untuk cek waktu order
+ * @param {string} batchType - Tipe batch: 'morning', 'afternoon', atau 'weekend'
+ */
+function checkOrderTime(batchType) {
+    // Cek apakah user sudah login
+    const isLoggedIn = checkUserLogin();
+    
+    if (!isLoggedIn) {
+        showModal('🔒', 'Login Required', 'Silakan login terlebih dahulu untuk melakukan pre-order.', true);
+        return;
+    }
+    
+    // Validasi waktu order
+    const schedule = orderSchedules[batchType];
+    const now = new Date();
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+    
+    // Cek apakah hari ini termasuk dalam jadwal
+    if (!schedule.days.includes(currentDay)) {
+        const dayNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const validDays = schedule.days.map(d => dayNames[d]).join(', ');
+        showModal('📅', 'Diluar Jadwal', `${schedule.name} hanya tersedia pada hari: ${validDays}`, false);
+        return;
+    }
+    
+    // Cek apakah waktu sekarang dalam rentang order time
+    if (currentHour < schedule.startHour || currentHour >= schedule.endHour) {
+        showModal('⏰', 'Diluar Jam Order', `Waktu order untuk ${schedule.name} adalah pukul ${schedule.startHour}:00 - ${schedule.endHour}:00 WIB`, false);
+        return;
+    }
+    
+    // Jika semua validasi lolos, redirect ke halaman order
+    window.location.href = schedule.orderUrl;
+}
+
+/**
+ * Cek apakah user sudah login
+ * @returns {boolean}
+ */
+function checkUserLogin() {
+    // Metode 1: Cek dari meta tag (paling aman dan reliable)
+    const metaTag = document.querySelector('meta[name="user-logged-in"]');
+    if (metaTag) {
+        return metaTag.content === 'true';
+    }
+    
+    // Metode 2: Cek session/cookie Laravel (fallback)
+    // Laravel biasanya menyimpan session dengan nama yang dimulai dengan 'laravel_session'
+    return document.cookie.includes('laravel_session');
+}
+
+/**
+ * Tampilkan modal notifikasi
+ * @param {string} icon - Emoji icon
+ * @param {string} title - Judul modal
+ * @param {string} message - Pesan modal
+ * @param {boolean} redirectToLogin - Apakah perlu redirect ke login
+ */
+function showModal(icon, title, message, redirectToLogin) {
+    const modal = document.getElementById('preorderModal');
+    document.getElementById('modalIcon').textContent = icon;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalMessage').textContent = message;
+    
+    modal.style.display = 'flex';
+    
+    // Jika perlu redirect ke login, tunggu 2 detik
+    if (redirectToLogin) {
+        setTimeout(() => {
+            // ← GANTI DENGAN ROUTE LOGIN ANDA
+            window.location.href = '/login';
+        }, 2000);
+    }
+}
+
+/**
+ * Tutup modal
+ */
+function closeModal() {
+    const modal = document.getElementById('preorderModal');
+    modal.style.display = 'none';
+}
+
+// Event listener untuk close modal ketika klik di luar box
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('preorderModal');
+    
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    }
+});
+
+/**
+ * Optional: Fungsi untuk testing validasi waktu (bisa dihapus di production)
+ * Cara pakai: Buka console browser, ketik testOrderTime('morning')
+ */
+function testOrderTime(batchType) {
+    console.log('Testing order time for:', batchType);
+    const schedule = orderSchedules[batchType];
+    const now = new Date();
+    
+    console.log('Current time:', now);
+    console.log('Current day:', now.getDay());
+    console.log('Current hour:', now.getHours());
+    console.log('Valid days:', schedule.days);
+    console.log('Valid hours:', schedule.startHour + '-' + schedule.endHour);
+    
+    checkOrderTime(batchType);
+}

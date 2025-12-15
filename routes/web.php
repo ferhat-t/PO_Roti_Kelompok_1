@@ -16,8 +16,14 @@ Route::get('/', function () {
     return view('welcome');
 
 
-});
+})->name('welcome');
 
 
 
 Route::get('/location', [LocationController::class, 'index'])->name('location.index');
+
+
+Route::get('/pre-order', function () {
+    return view('preorder');
+})->name('preorder');
+
