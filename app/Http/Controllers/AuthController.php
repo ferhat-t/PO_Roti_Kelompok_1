@@ -4,42 +4,65 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function showLogin() {
-    return view('auth.login');
-}
+    // TAMPILKAN FORM LOGIN
+    public function showLogin()
+    {
+        return view('auth.login');
+    }
 
-
+    // PROSES LOGIN
     public function login(Request $request)
     {
-        // Validasi input
-        $validated = $request->validate([
-            'email' => 'required',
-            'password' => 'required'
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-        // Autentikasi
-        if (Auth::attempt($validated)) {
-            return redirect()->route('profile');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect('/'); // ke home
         }
 
-        return back()->withErrors(['email' => 'Email atau password salah.']);
+        return back()->withErrors([
+            'email' => 'Email atau password salah',
+        ]);
     }
 
+    // TAMPILKAN FORM REGISTER
     public function showRegister()
     {
-        return view('auth.register');
+        return view('auth.sign');
     }
 
+    // PROSES REGISTER
     public function register(Request $request)
     {
-        // Tulis jika kamu ingin
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        return redirect()->route('login');
     }
 
-    public function profile()
+    // LOGOUT
+    public function logout(Request $request)
     {
-        return view('profile');
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

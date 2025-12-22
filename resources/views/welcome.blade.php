@@ -35,16 +35,31 @@
                         </svg>
                     </button>
                 
-                    <button class="btn-location">
-                        <a href="{{ route('login') }}" class="btn-login">Login</a>
-                        <a href="{{ route('sign') }}">Sign</a>
+                    <div class="btn-location">
 
+    @guest
+        <a href="{{ route('login') }}" class="btn-login">Login</a>
+        <a href="{{ route('sign') }}" class="btn-sign">Sign</a>
+    @endguest
 
-                        Location
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                    </button>
+    @auth
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="btn-user">
+                {{ Auth::user()->name }}
+            </button>
+        </form>
+    @endauth
+
+    <span class="location-text">
+        Location
+    </span>
+
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    </svg>
+</div>
+
                     <button class="btn-search">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="11" cy="11" r="8"></circle>

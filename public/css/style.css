@@ -1014,9 +1014,210 @@ body {
         bottom: 20px;
         right: 20px;
     }
-
-    
 }
+
+/* ============================= */
+/* LOGIN BUTTON – AUTH PAGE */
+/* ============================= */
+
+.btn-login-auth {
+    width: 100%;
+    margin-top: 18px;
+
+    background: linear-gradient(135deg, #a45c6a, #7a3b46);
+    color: #ffffff;
+
+    border: none;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    border-radius: 30px;
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(164, 92, 106, 0.35);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.btn-login-auth:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(164, 92, 106, 0.45);
+    background: linear-gradient(135deg, #7a3b46, #a45c6a);
+}
+
+/* Active (klik) */
+.btn-login-auth:active {
+    transform: scale(0.96);
+}
+
+/* ============================= */
+/* USERNAME BUTTON (AFTER LOGIN) */
+/* ============================= */
+
+.btn-user {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: linear-gradient(135deg, #e19e7c, #e19e7c);
+    color: #ffffff;
+
+    border: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.btn-user:hover {
+    background: linear-gradient(135deg, #ef8adc, #6bbbde);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(166, 138, 100, 0.45);
+}
+
+/* Active (klik) */
+.btn-user:active {
+    transform: scale(0.95);
+}
+
+/* Icon user */
+.btn-user::before {
+    content: "👤";
+    font-size: 14px;
+}
+
+/* ============================= */
+/* PROFILE DROPDOWN STYLE */
+/* ============================= */
+
+.profile-wrapper {
+    position: relative;
+}
+
+/* Username pill */
+.profile-btn {
+    background: #d8a6a3;
+    color: #ffffff;
+
+    border: none;
+    padding: 10px 22px;
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.profile-icon {
+    font-size: 12px;
+}
+
+/* Dropdown card */
+.profile-menu {
+    position: absolute;
+    top: 115%;
+    right: 0;
+
+    width: 220px;
+    background: #ffffff;
+    border-radius: 16px;
+
+    box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+    padding: 10px 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.25s ease;
+
+    z-index: 999;
+}
+
+/* Active */
+.profile-wrapper.active .profile-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Item */
+.profile-item {
+    width: 100%;
+    background: transparent;
+    border: none;
+
+    padding: 14px 22px;
+    text-align: left;
+
+    font-size: 15px;
+    cursor: pointer;
+    color: #5a3a2e;
+}
+
+/* Logout style */
+.profile-item.logout {
+    color: #8b3a3a;
+    font-weight: 600;
+}
+
+.profile-item.logout:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.user-menu {
+    position: relative;
+}
+
+.btn-user {
+    background: #e0b1a8;
+    border-radius: 30px;
+    padding: 8px 16px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.user-dropdown {
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background: white;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.dropdown-logout {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 10px 16px;
+    color: #b00020;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 
 
 /* End of File */

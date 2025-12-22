@@ -1,29 +1,38 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LocationController;
 
-Route::get('/sign', function () {
-    return view('auth.sign');
-})->name('sign');
+/*
+|--------------------------------------------------------------------------
+| AUTH ROUTES
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+// Login
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
-// route bawaan welcome
+// Register
+Route::get('/sign', [AuthController::class, 'showRegister'])->name('sign');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+
+// Logout (POST ONLY)
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+/*
+|--------------------------------------------------------------------------
+| PUBLIC PAGES
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', function () {
     return view('welcome');
-
-
 })->name('welcome');
-
-
-
-Route::get('/location', [LocationController::class, 'index'])->name('location.index');
-
 
 Route::get('/pre-order', function () {
     return view('preorder');
 })->name('preorder');
 
+Route::get('/location', [LocationController::class, 'index'])->name('location.index');

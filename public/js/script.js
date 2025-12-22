@@ -402,3 +402,28 @@ function testOrderTime(batchType) {
     
     checkOrderTime(batchType);
 }
+
+document.addEventListener('click', function (e) {
+    const wrapper = document.getElementById('profileDropdown');
+    const btn = document.getElementById('profileBtn');
+
+    if (!wrapper || !btn) return;
+
+    if (btn.contains(e.target)) {
+        wrapper.classList.toggle('active');
+        return;
+    }
+
+    if (!wrapper.contains(e.target)) {
+        wrapper.classList.remove('active');
+    }
+});
+
+document.getElementById('userToggle')?.addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.getElementById('userDropdown').classList.toggle('show');
+});
+
+document.addEventListener('click', function () {
+    document.getElementById('userDropdown')?.classList.remove('show');
+});

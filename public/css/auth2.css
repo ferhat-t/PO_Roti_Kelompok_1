@@ -89,3 +89,123 @@ input:focus {
 .login-link a:hover {
     text-decoration: underline;
 }
+
+/* ============================= */
+/* AUTH OPTIONS (LOGIN & SIGN) */
+/* ============================= */
+
+.auth-divider {
+    margin: 20px 0;
+    text-align: center;
+    position: relative;
+    color: #7a3b46;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: rgba(122, 59, 70, 0.4);
+}
+
+.auth-divider::before {
+    left: 0;
+}
+
+.auth-divider::after {
+    right: 0;
+}
+
+/* SIGN BUTTON */
+.btn-sign-auth {
+    display: block;
+    text-align: center;
+
+    background: transparent;
+    border: 2px solid #a45c6a;
+    color: #a45c6a;
+
+    padding: 10px 0;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.btn-sign-auth:hover {
+    background: #a45c6a;
+    color: #ffffff;
+}
+
+/* ============================= */
+/* AUTH BUTTONS – HIGH CONTRAST */
+/* ============================= */
+
+/* LOGIN BUTTON */
+.btn-login-auth {
+    width: 100%;
+    margin-top: 18px;
+
+    background: #4b2e1e; /* coklat tua */
+    color: #ffffff;
+
+    border: none;
+    padding: 13px 0;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    border-radius: 30px;
+    cursor: pointer;
+
+    box-shadow: 0 10px 25px rgba(75, 46, 30, 0.35);
+    transition: all 0.3s ease;
+}
+
+.btn-login-auth:hover {
+    background: #3a2316;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(75, 46, 30, 0.45);
+}
+
+/* SIGN BUTTON */
+.btn-sign-auth {
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+
+    background: #ffffff;
+    color: #a68a64;
+
+    border: 2px solid #a68a64;
+    padding: 12px 0;
+
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.btn-sign-auth:hover {
+    background: #a68a64;
+    color: #ffffff;
+}
+
+/* Divider */
+.auth-divider {
+    margin: 18px 0;
+    text-align: center;
+    color: #4b2e1e;
+    font-size: 13px;
+    font-weight: 500;
+}
+

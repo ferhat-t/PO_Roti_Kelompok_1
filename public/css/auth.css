@@ -75,3 +75,12 @@ input:focus {
 .footer-text a:hover {
     text-decoration: underline;
 }
+
+.alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+}
