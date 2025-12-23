@@ -6,17 +6,16 @@
         <a href="/tentang">Tentang</a>
     </div>
 
-    <div class="nav-right">
-        @auth
+    @auth
 <div class="user-menu">
 
-    <!-- USERNAME (BUKAN BUTTON) -->
-    <div class="btn-user" id="userToggle">
+    <!-- 1. USERNAME (TIDAK KIRIM APA-APA) -->
+    <button type="button" class="btn-user" id="userToggle">
         {{ Auth::user()->name }}
         <span class="arrow">▾</span>
-    </div>
+    </button>
 
-    <!-- DROPDOWN -->
+    <!-- 2. DROPDOWN -->
     <div class="user-dropdown" id="userDropdown">
         <form action="{{ route('logout') }}" method="POST">
             @csrf
@@ -29,13 +28,10 @@
 </div>
 @endauth
 
-
 @guest
-<a href="{{ route('login') }}" class="btn-login">LOGIN</a>
-<a href="{{ route('sign') }}">SIGN</a>
+<a href="{{ route('login') }}" class="btn-login">Login</a>
+<a href="{{ route('sign') }}" class="btn-sign">Sign</a>
 @endguest
 
 
-    </div>
-</nav>
 

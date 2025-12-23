@@ -8,73 +8,78 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="{{ asset('image/logotipastry.png') }}" alt="logotipastry">
-                    <div class="logo-text">
-                        <span class="logo-title">TI PASTRY</span>
-                        <span class="logo-subtitle">The Best Pastries In Town</span>
-                    </div>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#menu">PRODUCT</a></li>
-                    <li><a href="{{ route('preorder') }}" class="active">PRE-ORDER</a></li>
-                    <li><a href="#pickuppoints">Pickup Points</a></li>
-                    <li><a href="#myorder">MY ORDER</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <button class="btn-cart">
-                        CART
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                    </button>
-                
-                    <div class="btn-location">
+  <nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-wrapper">
 
-    @guest
-        <a href="{{ route('login') }}" class="btn-login">Login</a>
-        <a href="{{ route('sign') }}" class="btn-sign">Sign</a>
-    @endguest
-
-    @auth
-        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-            @csrf
-            <button type="submit" class="btn-user">
-                {{ Auth::user()->name }}
-            </button>
-        </form>
-    @endauth
-
-    <span class="location-text">
-        Location
-    </span>
-
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-    </svg>
-</div>
-
-                    <button class="btn-search">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                    <button class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="{{ asset('image/logotipastry.png') }}" alt="logotipastry">
+                <div class="logo-text">
+                    <span class="logo-title">TI PASTRY</span>
+                    <span class="logo-subtitle">The Best Pastries In Town</span>
                 </div>
             </div>
+
+            <!-- MENU -->
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#menu">PRODUCT</a></li>
+                <li><a href="{{ route('preorder') }}" class="active">PRE-ORDER</a></li>
+                <li><a href="#pickuppoints">Pickup Points</a></li>
+                <li><a href="#myorder">MY ORDER</a></li>
+            </ul>
+
+            <!-- ACTIONS -->
+            <div class="nav-actions">
+
+                <!-- CART -->
+                <button class="btn-cart">
+                    CART
+                </button>
+
+                <!-- LOGIN / USER -->
+                <div class="nav-user-area">
+
+                    @guest
+                        <a href="{{ route('login') }}" class="btn-login">Login</a>
+                        <a href="{{ route('sign') }}" class="btn-sign">Sign</a>
+                    @endguest
+
+                    @auth
+<div class="user-menu">
+    <button type="button" class="btn-user" id="userToggle">
+        {{ Auth::user()->name }}
+        <span>▾</span>
+    </button>
+
+    <div class="user-dropdown" id="userDropdown">
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="dropdown-logout">
+                Logout
+            </button>
+        </form>
+    </div>
+</div>
+@endauth
+
+
+                </div>
+
+                <!-- LOCATION (DIPISAH!) -->
+                <div class="btn-location">
+                    <span class="location-text">Location</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                    </svg>
+                </div>
+
+            </div>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay">
