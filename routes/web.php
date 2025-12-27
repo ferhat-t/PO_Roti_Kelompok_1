@@ -23,9 +23,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 // Logout (POST ONLY)
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/location', function () {
-    return view('location');
-})->name('location.index');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +39,6 @@ Route::get('/pre-order', function () {
     return view('preorder');
 })->name('preorder');
 
-Route::get('/location', [LocationController::class, 'index'])->name('location.index');
+Route::get('/location', function () {
+    return view('location');
+})->name('location.index');
