@@ -23,6 +23,10 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 // Logout (POST ONLY)
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('/location', function () {
+    return view('location');
+})->name('location.index');
+
 /*
 |--------------------------------------------------------------------------
 | PUBLIC PAGES

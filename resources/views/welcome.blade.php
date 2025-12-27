@@ -44,6 +44,7 @@
                     @guest
                         <a href="{{ route('login') }}" class="btn-login">Login</a>
                         <a href="{{ route('sign') }}" class="btn-sign">Sign</a>
+                        <a href="{{ route('location.index') }}">Location</a>
                     @endguest
 
                     @auth
