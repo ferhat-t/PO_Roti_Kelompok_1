@@ -6,6 +6,79 @@
     <title>TI PASTRY - Pastry Terbaik Indonesia</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if(session('register_success'))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    Swal.fire({
+        icon: 'success',
+        title: 'Registrasi Berhasil 🎉',
+        text: "{{ session('register_success') }}",
+        confirmButtonColor: '#E84118'
+    });
+});
+</script>
+@endif
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const logoutBtn = document.getElementById('logoutBtn');
+    const logoutForm = document.getElementById('logoutForm');
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function () {
+            Swal.fire({
+                title: 'Yakin ingin logout?',
+                text: 'Kamu akan keluar dari akun',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#aaa',
+                confirmButtonText: 'Ya, Logout',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    logoutForm.submit();
+                }
+            });
+        });
+    }
+});
+</script>
+@if(session('logout'))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    Swal.fire({
+        icon: 'success',
+        title: 'Logout Berhasil',
+        text: "{{ session('logout') }}",
+        timer: 2000,
+        showConfirmButton: false
+    });
+});
+</script>
+@endif
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if(session('success'))
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: "{{ session('success') }}",
+        timer: 2000,
+        showConfirmButton: false
+    });
+});
+</script>
+@endif
+
 <body>
     <!-- Navigation -->
   <nav class="navbar">
@@ -55,12 +128,13 @@
     </button>
 
     <div class="user-dropdown" id="userDropdown">
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="dropdown-logout">
-                Logout
-            </button>
-        </form>
+        <form id="logoutForm" action="{{ route('logout') }}" method="POST">
+    @csrf
+    <button type="button" id="logoutBtn" class="dropdown-logout">
+        Logout
+    </button>
+</form>
+
     </div>
 </div>
 @endauth
