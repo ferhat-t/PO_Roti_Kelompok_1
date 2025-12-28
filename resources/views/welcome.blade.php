@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TI PASTRY - Pastry Terbaik Indonesia</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/location.css') }}">
 </head>
 <body>
     <!-- Navigation -->
@@ -44,7 +45,6 @@
                     @guest
                         <a href="{{ route('login') }}" class="btn-login">Login</a>
                         <a href="{{ route('sign') }}" class="btn-sign">Sign</a>
-                        <a href="{{ route('location.index') }}">Location</a>
                     @endguest
 
                     @auth
@@ -69,12 +69,13 @@
                 </div>
 
                 <!-- LOCATION (DIPISAH!) -->
-                <div class="btn-location">
-                    <span class="location-text"></span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                    </svg>
-                </div>
+                <a href="{{ route('location.index') }}" class="btn-location">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    </svg>
+    <span>LOCATION</span>
+</a>
+
 
             </div>
         </div>

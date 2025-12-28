@@ -1,0 +1,27 @@
+/* Gaya dasar untuk semua tombol di navbar */
+.btn-location {
+  display: inline-block;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  
+  /* Membuat bentuk lonjong (Pill Shape) */
+  padding: 10px 30px;
+  border-radius: 50px; 
+  
+  /* Warna sesuai gambar (Cokelat Tua) */
+  background-color: #5D472B; 
+  color: white;
+  
+  /* Garis tepi putih agar terlihat seperti tombol Login */
+  border: 2px solid white;
+  
+  transition: 0.3s;
+}
+
+/* Efek saat mouse diarahkan (Hover) */
+.btn-location:hover {
+  background-color: white;
+  color: #5D472B;
+}
