@@ -22,14 +22,13 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect('/'); // ke home
-        }
+     if (Auth::attempt($credentials)) {
+    $request->session()->regenerate();
 
-        return back()->withErrors([
-            'email' => 'Email atau password salah',
-        ]);
+    return redirect('/')
+        ->with('success', 'Login berhasil, selamat datang!');
+}
+
     }
 
     // TAMPILKAN FORM REGISTER
@@ -53,7 +52,10 @@ class AuthController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
-        return redirect()->route('login');
+        return redirect()
+    ->route('login')
+    ->with('register_success', 'Akun berhasil dibuat. Silakan login.');
+
     }
 
     // LOGOUT
@@ -63,6 +65,8 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')
+    ->with('logout', 'Anda berhasil logout');
+
     }
 }
