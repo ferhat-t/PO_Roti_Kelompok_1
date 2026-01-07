@@ -48,3 +48,10 @@ Route::get('/pre-order', function () {
 Route::get('/location', function () {
     return view('location');
 })->name('location.index');
+// Cari yang tadi kamu tulis, ganti jadi ini:
+Route::get('/cart', function () {
+    return view('cart'); 
+});
+Route::get('/checkout', function () {
+    return view('checkout'); 
+});
