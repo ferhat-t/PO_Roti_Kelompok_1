@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Lokasi UNIMUS</title>
+    <title>Lokasi TI PASTRY</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{-- Bootstrap --}}
@@ -35,8 +35,8 @@
 {{-- HERO --}}
 <section class="hero">
     <div class="container">
-        <h1 class="display-4 fw-bold">Universitas Muhammadiyah Semarang</h1>
-        <p class="lead">Kampus Islami, Unggul, dan Berkemajuan</p>
+        <h1 class="display-4 fw-bold">TI PASTRY</h1>
+        <p class="lead">Enak, Lezat, dan Ramah Dikantong</p>
     </div>
 </section>
 
@@ -47,18 +47,19 @@
         {{-- INFO --}}
         <div class="col-md-5">
             <div class="card info-card p-4">
-                <h3 class="fw-bold mb-3">📍 Lokasi Kampus</h3>
+                <h3 class="fw-bold mb-3">Lokasi TI PASTRY</h3>
                 <p>
-                    Universitas Muhammadiyah Semarang (UNIMUS) berlokasi di Kota Semarang,
+                    TI PASTRY adalah sebuah website toko roti yang dibuat oleh
+                    mahasiswa Teknologi Informasi Universitas Muhammadiyah Semarang (UNIMUS) berlokasi di Kota Semarang,
                     Jawa Tengah, dengan lingkungan kampus yang strategis, nyaman,
                     dan mudah diakses.
                 </p>
 
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">🏫 Nama: UNIMUS</li>
+                    <li class="list-group-item">🏫 Nama Toko: TI PASTRY</li>
                     <li class="list-group-item">📍 Alamat: Jl. Kedungmundu Raya No.18</li>
                     <li class="list-group-item">🌆 Kota: Semarang</li>
-                    <li class="list-group-item">📞 Telp: (024) 76740296</li>
+                    <li class="list-group-item">📞 Telp: 088226655764</li>
                 </ul>
 
                 <a href="https://unimus.ac.id" target="_blank" class="btn btn-primary mt-3">

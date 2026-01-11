@@ -24,7 +24,7 @@
                     <li><a href="{{ route('welcome') }}#menu">PRODUCT</a></li>
                     <li><a href="{{ route('preorder') }}" class="active">PRE-ORDER</a></li>
                     <li><a href="{{ route('welcome') }}#pickuppoints">Pickup Points</a></li>
-                    <li><a href="{{ route('welcome') }}#myorder">MY ORDER</a></li>
+                    <li><a href="{{ route('cart.index') }}">MY ORDER</a></li>
                 </ul>
                 <div class="nav-actions">
                     <button class="btn-cart">

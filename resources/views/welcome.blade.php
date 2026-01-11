@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li><a href="#menu">PRODUCT</a></li>
                 <li><a href="{{ route('preorder') }}" class="active">PRE-ORDER</a></li>
                 <li><a href="#pickuppoints">Pickup Points</a></li>
-                <li><a href="#myorder">MY ORDER</a></li>
+                <li><a href="{{ route('cart.index') }}">MY ORDER</a></li>
             </ul>
 
             <!-- ACTIONS -->
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <li><a href="#menu">PRODUCT</a></li>
                 <li><a href="#preorder">PRE-ORDER</a></li>
                 <li><a href="#pickuppoints">Pickup Points</a></li>
-                <li><a href="#myorder">MY ORDER</a></li>
+                <li><a href="{{ route('cart.index') }}">MY ORDER</a></li>
             </ul>
         </div>
     </div>
@@ -278,65 +278,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 <button class="tab-btn" data-tab="pudding">Pudding</button>
             </div>
             <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-badge">👍</div>
-                    <div class="product-image">
-                        <img src="{{ asset('image/croisan.jpg') }}" alt="Roti Croisant">
+                @foreach($products as $product)
+                    <div class="product-card">
+                        @if($product->stock > 0)
+                            <div class="product-badge">👍</div>
+                        @endif
+                        <div class="product-image">
+                            <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                        </div>
+                        <h3 class="product-name">{{ $product->name }}</h3>
+                        <div class="product-price">
+                            <span class="price-current">Rp. {{ number_format($product->price, 0, ',', '.') }}</span>
+                        </div>
+                        <div class="product-rating">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
+
+                        @auth
+                            <form method="POST" action="{{ route('cart.store') }}">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="hidden" name="quantity" value="1">
+                                <button type="submit" class="add-to-cart">add to cart</button>
+                            </form>
+                        @else
+                            <a href="{{ route('login') }}" class="add-to-cart">Login to add</a>
+                        @endauth
                     </div>
-                    <h3 class="product-name">Roti Croissant</h3>
-                    <div class="product-price">
-                        <span class="price-old">Rp. 16.300</span>
-                        <span class="price-current">Rp. 14.900</span>
-                    </div>
-                    <div class="product-rating">
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <button class="add-to-cart">add to cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="{{ asset('image/cromboloni.png') }}" alt="Cromboloni">
-                    </div>
-                    <h3 class="product-name">Cromboloni</h3>
-                    <div class="product-price">
-                        <span class="price-old">Rp. 18.700</span>
-                        <span class="price-current">Rp. 17.000</span>
-                    </div>
-                    <div class="product-rating">
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <button class="add-to-cart">add to cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-badge">👍</div>
-                    <div class="product-image">
-                        <img src="{{ asset('image/roti.jpg') }}" alt="Roti Gandum">
-                    </div>
-                    <h3 class="product-name">Roti Gandum</h3>
-                    <div class="product-price">
-                        <span class="price-old">Rp. 11.900</span>
-                        <span class="price-current">Rp. 10.900</span>
-                    </div>
-                    <div class="product-rating">
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <button class="add-to-cart">add to cart</button>
-                </div>
-                <div class="product-card">
-                    <div class="product-badge">👍</div>
-                    <div class="product-image">
-                        <img src="{{ asset('image/blueberypastry.jpg') }}" alt="Bluebery Pastry">
-                    </div>
-                    <h3 class="product-name">Bluberry Pastry</h3>
-                    <div class="product-price">
-                        <span class="price-old">Rp. 35.000</span>
-                        <span class="price-current">Rp. 25.000</span>
-                    </div>
-                    <div class="product-rating">
-                        <span>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <button class="add-to-cart">add to cart</button>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>

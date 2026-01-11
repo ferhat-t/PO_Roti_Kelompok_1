@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\CartController;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -32,7 +33,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = \App\Models\Product::where('is_active', true)->take(8)->get();
+    return view('welcome', compact('products'));
 })->name('welcome');
 
 Route::get('/pre-order', function () {
@@ -42,3 +44,11 @@ Route::get('/pre-order', function () {
 Route::get('/location', function () {
     return view('location');
 })->name('location.index');
+
+// Cart routes (requires auth)
+Route::middleware('auth')->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+    Route::patch('/cart/{cart}', [CartController::class, 'update'])->name('cart.update');
+    Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
+});
