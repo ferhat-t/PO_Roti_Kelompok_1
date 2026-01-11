@@ -4,9 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\CartController;
-
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\MyOrderController;
 use Illuminate\Support\Facades\Auth;
 
+// Group Route khusus Admin
+Route::middleware(['auth', 'AdminMiddleware'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::resource('products', ProductController::class); // Ini akan otomatis membuat name 'products.index', 'products.create', dll.
+});
 /*
 |--------------------------------------------------------------------------
 | AUTH ROUTES
@@ -52,3 +59,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/cart/{cart}', [CartController::class, 'update'])->name('cart.update');
     Route::delete('/cart/{cart}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
+
+
+Route::get('/', [MyOrderController::class, 'index']);
+
+
+// Optional views for checkout (placeholder)
+Route::get('/checkout', function () {
+    return view('checkout');
+})->name('checkout');

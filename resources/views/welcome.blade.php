@@ -305,7 +305,56 @@ document.addEventListener('DOMContentLoaded', function () {
                             <a href="{{ route('login') }}" class="add-to-cart">Login to add</a>
                         @endauth
                     </div>
+<<<<<<< HEAD
                 @endforeach
+=======
+                    <h3 class="product-name">Roti Croissant</h3>
+                    <div class="product-price">
+                        <span class="price-old">Rp. 16.300</span>
+                        <span class="price-current">Rp. 14.900</span>
+                    </div>
+                    <div class="product-rating">
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button type="button" class="btn-add" onclick="orderSekarang('Roti Croissant')">
+    ADD TO CART
+</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="{{ asset('image/cromboloni.png') }}" alt="Cromboloni">
+                    </div>
+                    <h3 class="product-name">Cromboloni</h3>
+                    <div class="product-price">
+                        <span class="price-old">Rp. 18.700</span>
+                        <span class="price-current">Rp. 17.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                  <button type="button" class="btn-add" onclick="orderSekarang('Cromboloni')">
+    ADD TO CART
+</button>
+                </div>
+                <div class="product-card">
+                    <div class="product-badge">👍</div>
+                    <div class="product-image">
+                        <img src="{{ asset('image/blueberypastry.jpg') }}" alt="Bluebery Pastry">
+                    </div>
+                    <h3 class="product-name">Bluberry Pastry</h3>
+                    <div class="product-price">
+                        <span class="price-old">Rp. 35.000</span>
+                        <span class="price-current">Rp. 25.000</span>
+                    </div>
+                    <div class="product-rating">
+                        <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button type="button" class="btn-add" onclick="orderSekarang('Bluebery Pastry')">
+    ADD TO CART
+</button>
+</button>
+                </div>
+>>>>>>> 193853d51823968301185c00a816536f50a549f2
             </div>
         </div>
     </section>
@@ -355,7 +404,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container">biar
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Quick Links</h3>
@@ -412,6 +461,37 @@ document.addEventListener('DOMContentLoaded', function () {
     </button>
 
     
-    <script src="{{ asset('js/script.js') }}"></script>
+ <div id="customModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:10000; font-family: 'Segoe UI', sans-serif;">
+    <div style="position:relative; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:30px; border-radius:15px; width:350px; text-align:center; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+        <div style="color: #a68b6d; font-size: 50px; margin-bottom: 10px;">✔</div>
+        <h3 id="modalMsg" style="margin: 0 0 20px 0; color: #333; font-size: 18px;">Produk Berhasil Ditambah!</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button onclick="lanjutKeCart()" style="background:#a68b6d; color:white; border:none; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold;">Lihat Keranjang</button>
+            <button onclick="tutupModalCustom()" style="background:#f4f4f4; color:#666; border:none; padding:12px; border-radius:8px; cursor:pointer;">Lanjut Belanja</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function orderSekarang(namaProduk) {
+    // Simpan data ke memory
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+    cart.push(namaProduk);
+    localStorage.setItem('myCart', JSON.stringify(cart));
+
+    // Munculkan Modal Custom (Pengganti confirm)
+    document.getElementById('modalMsg').innerText = namaProduk + " ditambah!";
+    document.getElementById('customModal').style.display = 'block';
+}
+
+function tutupModalCustom() {
+    document.getElementById('customModal').style.display = 'none';
+}
+
+function lanjutKeCart() {
+    window.location.href = "/cart";
+}
+</script>
 </body>
 </html>

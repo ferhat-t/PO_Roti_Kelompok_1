@@ -17,9 +17,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        // Create or update a test user so re-seeding is idempotent
+        \App\Models\User::updateOrCreate([
+            'email' => 'test@example.com'
+        ], [
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'password' => bcrypt('password')
         ]);
 
         // Seed sample products used in the UI
