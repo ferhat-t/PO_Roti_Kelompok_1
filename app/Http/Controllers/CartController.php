@@ -1,83 +1,78 @@
 <?php
+// app/Http/Controllers/CartController.php
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-
+    /**
+     * Tampilkan keranjang belanja
+     */
     public function index()
     {
-        $user = Auth::user();
-        $carts = Cart::with('product')->where('user_id', $user->id)->get();
-
-        return view('cart', compact('carts'));
+        $cart = session()->get('cart', []);
+        return view('cart.index', compact('cart'));
     }
 
-    public function store(Request $request)
+    /**
+     * Tambah produk ke keranjang
+     */
+    public function add(Request $request, $id)
     {
-        $data = $request->validate([
-            'product_id' => ['required', 'integer', 'exists:products,id'],
-            'quantity' => ['nullable', 'integer', 'min:1'],
-            'note' => ['nullable', 'string'],
-        ]);
+        $product = Product::findOrFail($id);
 
-        $user = Auth::user();
-        $quantity = $data['quantity'] ?? 1;
-
-        $cart = Cart::where('user_id', $user->id)
-            ->where('product_id', $data['product_id'])
-            ->first();
-
-        if ($cart) {
-            $cart->quantity += $quantity;
-            if (isset($data['note'])) {
-                $cart->note = $data['note'];
-            }
-            $cart->save();
-        } else {
-            Cart::create([
-                'user_id' => $user->id,
-                'product_id' => $data['product_id'],
-                'quantity' => $quantity,
-                'note' => $data['note'] ?? null,
-            ]);
+        // Cek stok
+        if ($product->stock <= 0) {
+            return redirect()->back()->with('error', 'Produk habis!');
         }
 
-        return back()->with('success', 'Produk berhasil ditambahkan ke keranjang.');
+        $cart = session()->get('cart', []);
+
+        // Jika produk sudah ada di cart, tambah quantity
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            // Jika produk baru, tambahkan ke cart
+            $cart[$id] = [
+                'name' => $product->name,
+                'quantity' => 1,
+                'price' => $product->price,
+                'image' => $product->image
+            ];
+        }
+
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Produk berhasil ditambahkan ke keranjang!');
     }
 
-    public function update(Request $request, Cart $cart)
+    /**
+     * Update quantity produk di keranjang
+     */
+    public function update(Request $request)
     {
-        $this->authorizeCartOwner($cart);
-
-        $data = $request->validate([
-            'quantity' => ['required', 'integer', 'min:1'],
-        ]);
-
-        $cart->update(['quantity' => $data['quantity']]);
-
-        return back()->with('success', 'Jumlah produk berhasil diperbarui.');
+        if ($request->id && $request->quantity) {
+            $cart = session()->get('cart');
+            $cart[$request->id]['quantity'] = $request->quantity;
+            session()->put('cart', $cart);
+            return redirect()->back()->with('success', 'Keranjang berhasil diperbarui!');
+        }
     }
 
-    public function destroy(Cart $cart)
+    /**
+     * Hapus produk dari keranjang
+     */
+    public function remove(Request $request)
     {
-        $this->authorizeCartOwner($cart);
-
-        $cart->delete();
-
-        return back()->with('success', 'Produk dihapus dari keranjang.');
-    }
-
-    protected function authorizeCartOwner(Cart $cart)
-    {
-        $user = Auth::user();
-        if ($cart->user_id !== $user->id) {
-            abort(403);
+        if ($request->id) {
+            $cart = session()->get('cart');
+            if (isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            return redirect()->back()->with('success', 'Produk berhasil dihapus dari keranjang!');
         }
     }
 }

@@ -8,33 +8,105 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    // Menampilkan daftar roti
+    /**
+     * Cek admin di setiap method
+     */
+    private function checkAdmin()
+    {
+        if (!auth()->check() || !auth()->user()->is_admin) {
+            abort(403, 'Akses ditolak. Anda bukan admin.');
+        }
+    }
+
     public function index()
     {
-        $products = Product::all();
+        $this->checkAdmin();
+        $products = Product::latest()->get();
         return view('admin.products.index', compact('products'));
     }
 
-    // Form tambah roti
     public function create()
     {
+        $this->checkAdmin();
         return view('admin.products.create');
     }
 
-    // Simpan roti ke database
     public function store(Request $request)
     {
+        $this->checkAdmin();
+        
         $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048'
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
-        Product::create($request->all());
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('images/products'), $imageName);
 
-        return redirect()->route('products.index')->with('success', 'Roti berhasil ditambahkan!');
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'stock' => $request->stock,
+            'image' => $imageName
+        ]);
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Produk berhasil ditambahkan!');
     }
 
-    // ... (fungsi lainnya bisa menyusul)
+    public function edit(Product $product)
+    {
+        $this->checkAdmin();
+        return view('admin.products.edit', compact('product'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $this->checkAdmin();
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        $data = $request->only(['name', 'description', 'price', 'stock']);
+
+        if ($request->hasFile('image')) {
+            $oldImagePath = public_path('images/products/' . $product->image);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images/products'), $imageName);
+            $data['image'] = $imageName;
+        }
+
+        $product->update($data);
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Produk berhasil diperbarui!');
+    }
+
+    public function destroy(Product $product)
+    {
+        $this->checkAdmin();
+        
+        $imagePath = public_path('images/products/' . $product->image);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
+        $product->delete();
+
+        return redirect()->route('admin.products.index')
+            ->with('success', 'Produk berhasil dihapus!');
+    }
 }

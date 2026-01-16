@@ -1,20 +1,41 @@
 <?php
+// app/Models/Product.php
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'products';
+    use HasFactory;
 
     protected $fillable = [
         'name',
         'description',
         'price',
-        'image',
         'stock',
-        'category',
-        'is_active',
+        'image',
     ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
+        'stock' => 'integer',
+    ];
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+
+    public function isInStock()
+    {
+        return $this->stock > 0;
+    }
+
+    public function decreaseStock($quantity)
+    {
+        $this->stock -= $quantity;
+        $this->save();
+    }
 }
