@@ -13,10 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        // Cek apakah user adalah admin
-        if (!auth()->check() || !auth()->user()->is_admin) {
-            abort(403, 'Akses ditolak. Anda bukan admin.');
-        }
+        
 
         $totalOrders = Order::count();
         $totalRevenue = Order::sum('total');

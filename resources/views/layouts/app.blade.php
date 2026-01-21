@@ -59,13 +59,11 @@
                             </a>
                         </li>
                     @else
-                        @if(auth()->user()->is_admin)
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                                    <i class="fas fa-cog"></i> Admin
-                                </a>
-                            </li>
-                        @endif
+                        @if(Auth::user()->role === 'admin')
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard Admin</a>
+        </li>
+    @endif
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" 
                                data-bs-toggle="dropdown" aria-expanded="false">

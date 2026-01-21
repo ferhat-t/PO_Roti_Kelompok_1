@@ -9,16 +9,7 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware(function ($request, $next) {
-            if (!auth()->user()->is_admin) {
-                abort(403, 'Akses ditolak. Anda bukan admin.');
-            }
-            return $next($request);
-        });
-    }
+    
 
     /**
      * Tampilkan semua pesanan
@@ -29,9 +20,7 @@ class OrderController extends Controller
         return view('admin.orders.index', compact('orders'));
     }
 
-    /**
-     * Tampilkan detail pesanan
-     */
+
     public function show(Order $order)
     {
         $order->load('orderItems.product');

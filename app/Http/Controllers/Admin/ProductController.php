@@ -11,29 +11,24 @@ class ProductController extends Controller
     /**
      * Cek admin di setiap method
      */
-    private function checkAdmin()
-    {
-        if (!auth()->check() || !auth()->user()->is_admin) {
-            abort(403, 'Akses ditolak. Anda bukan admin.');
-        }
-    }
+    
 
     public function index()
     {
-        $this->checkAdmin();
+
         $products = Product::latest()->get();
         return view('admin.products.index', compact('products'));
     }
 
     public function create()
     {
-        $this->checkAdmin();
+
         return view('admin.products.create');
     }
 
     public function store(Request $request)
     {
-        $this->checkAdmin();
+
         
         $request->validate([
             'name' => 'required|string|max:255',
@@ -60,13 +55,13 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $this->checkAdmin();
+
         return view('admin.products.edit', compact('product'));
     }
 
     public function update(Request $request, Product $product)
     {
-        $this->checkAdmin();
+
         
         $request->validate([
             'name' => 'required|string|max:255',
@@ -97,7 +92,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $this->checkAdmin();
+
         
         $imagePath = public_path('images/products/' . $product->image);
         if (file_exists($imagePath)) {

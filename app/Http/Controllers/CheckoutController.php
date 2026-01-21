@@ -7,9 +7,14 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckoutController extends Controller
 {
+    /**
+     * Constructor - Middleware untuk memastikan user sudah login
+     */
+
     /**
      * Tampilkan halaman checkout
      */
@@ -50,9 +55,9 @@ class CheckoutController extends Controller
             $total += $item['price'] * $item['quantity'];
         }
 
-        // Buat order
+        // Buat order dengan user_id dari user yang login
         $order = Order::create([
-            'user_id' => auth()->id(),
+            'user_id' => Auth::id(),
             'customer_name' => $request->customer_name,
             'phone' => $request->phone,
             'address' => $request->address,
@@ -87,7 +92,11 @@ class CheckoutController extends Controller
      */
     public function success($id)
     {
-        $order = Order::with('orderItems.product')->findOrFail($id);
+        $order = Order::with('orderItems.product')
+            ->where('id', $id)
+            ->where('user_id', Auth::id()) // Pastikan order milik user yang login
+            ->firstOrFail();
+            
         return view('checkout.success', compact('order'));
     }
 }

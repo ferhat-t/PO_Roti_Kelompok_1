@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin NeedRoti',
             'email' => 'admin@needroti.com',
             'password' => Hash::make('admin123'),
-            'is_admin' => true
+            'role' => 'admin'
         ]);
 
         // Buat Customer User
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Customer',
             'email' => 'customer@needroti.com',
             'password' => Hash::make('customer123'),
-            'is_admin' => false
+            'role' => 'customer'
         ]);
 
         // Buat Sample Products

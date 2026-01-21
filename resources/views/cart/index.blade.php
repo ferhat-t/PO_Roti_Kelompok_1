@@ -18,6 +18,13 @@
         </div>
     @endif
 
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="fas fa-exclamation-circle"></i> {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    @endif
+
     @if(!empty($cart))
         <div class="row">
             <!-- Cart Items -->
@@ -79,7 +86,7 @@
                                         <input type="hidden" name="id" value="{{ $id }}">
                                         <button type="submit" 
                                                 class="btn btn-sm btn-danger" 
-                                                data-confirm-delete="Hapus produk ini dari keranjang?"
+                                                onclick="return confirm('Hapus produk ini dari keranjang?')"
                                                 title="Hapus">
                                             <i class="fas fa-trash"></i>
                                         </button>
@@ -113,9 +120,24 @@
                         </div>
                         
                         <div class="d-grid gap-2">
-                            <a href="{{ route('checkout.index') }}" class="btn btn-primary btn-lg">
-                                <i class="fas fa-check-circle"></i> Checkout
-                            </a>
+                            @auth
+                                <!-- Jika sudah login, bisa langsung checkout -->
+                                <a href="{{ route('checkout.index') }}" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-check-circle"></i> Checkout
+                                </a>
+                            @else
+                                <!-- Jika belum login, tampilkan tombol login -->
+                                <div class="alert alert-warning mb-3">
+                                    <i class="fas fa-info-circle"></i> Silakan login terlebih dahulu untuk melanjutkan checkout
+                                </div>
+                                <a href="{{ route('login') }}" class="btn btn-success btn-lg">
+                                    <i class="fas fa-sign-in-alt"></i> Login untuk Checkout
+                                </a>
+                                <a href="{{ route('register') }}" class="btn btn-outline-success">
+                                    <i class="fas fa-user-plus"></i> Belum punya akun? Daftar
+                                </a>
+                            @endauth
+                            
                             <a href="{{ route('products.index') }}" class="btn btn-outline-secondary">
                                 <i class="fas fa-shopping-bag"></i> Lanjut Belanja
                             </a>
