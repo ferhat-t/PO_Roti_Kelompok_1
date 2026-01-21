@@ -6,7 +6,13 @@
 @section('content')
 
 <!-- Hero Section -->
-<div class="hero-section" style="background-image: url('{{ asset('images/bg depan/hero-bg.png') }}');">
+ @php
+    // Encode path untuk menangani spasi
+    $heroImagePath = asset('images/bg-depan/hero-bg.png');
+    // Atau bisa juga menggunakan str_replace untuk mengganti spasi dengan %20
+    $heroImagePath = str_replace(' ', '%20', $heroImagePath);
+@endphp
+<div class="hero-section" style="background-image: url('{{ $heroImagePath }}');">
     <div class="hero-overlay"></div>
     <div class="container text-center">
         <h1 class="display-3 fw-bold mb-3">ALL AMAZING BREAD & CAKE</h1>
