@@ -120,7 +120,7 @@
 
     <!-- Action Buttons (Hide on Print) -->
     <div class="no-print" style="text-align: center; margin: 30px 0;">
-        <a href="https://wa.me/{{ $order->getWhatsappNumber() }}?text=Halo%20{{ urlencode($order->customer_name) }},%20pesanan%20Anda%20%23{{ $order->id }}%20dengan%20total%20Rp%20{{ number_format($order->total, 0, ',', '.') }}%20telah%20kami%20terima.%20Silakan%20lakukan%20pembayaran." 
+        <a href="https://wa.me/+62{{ $order->getWhatsappNumber() }}?text=Halo%20{{ urlencode($order->customer_name) }},%20pesanan%20Anda%20%23{{ $order->id }}%20dengan%20total%20Rp%20{{ number_format($order->total, 0, ',', '.') }}%20telah%20kami%20terima.%20Silakan%20lakukan%20pembayaran." 
            class="whatsapp-btn" target="_blank">
             💬 Hubungi via WhatsApp
         </a>
