@@ -34,32 +34,32 @@ class DatabaseSeeder extends Seeder
         // Buat Sample Products
         $products = [
             [
-                'name' => 'Chocolate Chip Cookie',
-                'description' => 'Cookie lezat dengan chocolate chip premium yang meleleh di mulut. Dibuat dengan mentega berkualitas tinggi dan cokelat pilihan.',
-                'price' => 35000,
+                'name' => 'Cromboloni',
+                'description' => 'Perpaduan sempurna antara croissant renyah dan bomboloni lembut! Diisi dengan cream premium yang creamy, dibuat fresh setiap hari. Tekstur berlapis yang crispy di luar, lembut di dalam.',
+                'price' => 25000,
                 'stock' => 50,
-                'image' => 'chocolate-chip-cookie.jpg'
+                'image' => '1768970261.png'
             ],
             [
-                'name' => 'Roti Papa Cookies Original',
-                'description' => 'Roti Papa Cookies dengan resep original yang sudah terkenal. Rasa manis yang pas dan tekstur yang lembut.',
-                'price' => 30000,
-                'stock' => 100,
-                'image' => 'papa-cookies-original.jpg'
+                'name' => 'Danish Pastry',
+                'description' => 'Pastry klasik Eropa dengan lapisan-lapisan adonan yang renyah dan buttery. Dibuat dengan teknik laminating tradisional, menghasilkan tekstur yang ringan dan lembut.',
+                'price' => 20000,
+                'stock' => 60,
+                'image' => '1768970364.png'
             ],
             [
                 'name' => 'Cheese Bread',
                 'description' => 'Roti keju dengan isian keju yang melimpah. Cocok untuk sarapan atau camilan sore.',
                 'price' => 25000,
                 'stock' => 75,
-                'image' => 'cheese-bread.jpg'
+                'image' => '1768970423.png'
             ],
             [
                 'name' => 'Vanilla Cake',
                 'description' => 'Kue vanilla lembut dengan topping cream cheese yang nikmat. Sempurna untuk berbagai acara.',
                 'price' => 120000,
                 'stock' => 20,
-                'image' => 'vanilla-cake.jpg'
+                'image' => '1768970541.png'
             ]
         ];
 
