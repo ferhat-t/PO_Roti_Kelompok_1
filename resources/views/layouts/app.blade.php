@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'needroTI - All Amazing Bread & Cake')</title>
+    <title>@yield('title', 'needroTI - All Amazing Bread & Pastry')</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,6 +15,9 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon/favicon.png') }}">
     
     @yield('extra-css')
 </head>
@@ -24,7 +27,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="fas fa-bread-slice"></i> needroTI
+                <img src="{{ asset('images/favicon/favicon.png') }}" alt="needroTI Logo" style="height: 40px; margin-right: 5px;">
+needroTI
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -40,12 +44,12 @@
                         <a class="nav-link {{ Request::is('products*') ? 'active' : '' }}" href="{{ route('products.index') }}">PRODUK</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">LOKASI OUTLET</a>
+                        <a class="nav-link" href="https://maps.app.goo.gl/JfsqhzHuo8spEdkW9" target="_blank">LOKASI OUTLET</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">TENTANG KAMI</a>
+                        <a class="nav-link" href="{{ route('home') }}#jadwal-po">JADWAL PO</a>
                     </li>
-            
+                                
                     
                     @guest
                         <li class="nav-item">
@@ -111,7 +115,7 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <h5><i class="fas fa-bread-slice"></i> needroTI</h5>
-                    <p>All Amazing Bread & Cake - Rasakan Sajian Roti Papa Cookies yang Luar Biasa</p>
+                    <p>All Amazing Bread & Pastry - Rasakan Sajian Pastry yang luar biasa</p>
                 </div>
                 <div class="col-md-4 mb-3">
                     <h5>Hubungi Kami</h5>
@@ -121,12 +125,7 @@
                         <i class="fas fa-map-marker-alt"></i> Semarang, Central Java
                     </p>
                 </div>
-                <div class="col-md-4 mb-3">
-                    <h5>Ikuti Kami</h5>
-                    <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fab fa-whatsapp fa-2x"></i></a>
-                </div>
+                
             </div>
             <hr class="bg-white">
             <div class="text-center">
