@@ -35,7 +35,7 @@
                             <td><strong>#{{ $order->id }}</strong></td>
                             <td>{{ $order->customer_name }}</td>
                             <td>
-                                <a href="https://wa.me/{{ $order->getWhatsappNumber() }}" 
+                                <a href="https://wa.me/+62{{ $order->getWhatsappNumber() }}" 
                                    target="_blank" 
                                    class="text-success text-decoration-none">
                                     <i class="fab fa-whatsapp"></i> {{ $order->phone }}
@@ -80,7 +80,7 @@
                                        title="Download/Print">
                                         <i class="fas fa-download"></i>
                                     </a>
-                                    <a href="https://wa.me/{{ $order->getWhatsappNumber() }}?text=Halo%20{{ urlencode($order->customer_name) }},%20pesanan%20Anda%20%23{{ $order->id }}%20sedang%20diproses." 
+                                    <a href="https://wa.me/+62{{ $order->getWhatsappNumber() }}?text=Halo%20{{ urlencode($order->customer_name) }},%20pesanan%20Anda%20%23{{ $order->id }}%20sedang%20diproses." 
                                        class="btn btn-sm btn-success" 
                                        target="_blank"
                                        title="WhatsApp">

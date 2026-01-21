@@ -38,7 +38,7 @@
                                 <tr>
                                     <td><strong>Telepon:</strong></td>
                                     <td>
-                                        <a href="https://wa.me/{{ $order->getWhatsappNumber() }}" 
+                                        <a href="https://wa.me/+62{{ $order->getWhatsappNumber() }}" 
                                            target="_blank" 
                                            class="text-success text-decoration-none">
                                             <i class="fab fa-whatsapp"></i> {{ $order->phone }}
@@ -141,7 +141,7 @@
 
                     <!-- Action Buttons -->
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
-                        <a href="https://wa.me/{{ $order->getWhatsappNumber() }}?text=Halo%20{{ urlencode($order->customer_name) }},%20pesanan%20Anda%20%23{{ $order->id }}%20dengan%20total%20Rp%20{{ number_format($order->total, 0, ',', '.') }}%20telah%20kami%20terima.%20Silakan%20lakukan%20pembayaran." 
+                        <a href="https://wa.me/+62{{ $order->getWhatsappNumber() }}?text=Halo%20{{ urlencode($order->customer_name) }},%20pesanan%20Anda%20%23{{ $order->id }}%20dengan%20total%20Rp%20{{ number_format($order->total, 0, ',', '.') }}%20telah%20kami%20terima.%20Silakan%20lakukan%20pembayaran." 
                            class="btn btn-success" 
                            target="_blank">
                             <i class="fab fa-whatsapp"></i> Hubungi via WhatsApp
