@@ -19,7 +19,8 @@
     <div class="row">
         <div class="col-md-6 mb-4">
             <div class="card">
-                <img src="{{ asset('images/products/' . $product->image) }}" 
+                {{-- ✅ FIXED: Ganti path dari images/products ke storage --}}
+                <img src="{{ asset('storage/' . $product->image) }}" 
                      class="card-img-top rounded shadow" 
                      alt="{{ $product->name }}"
                      style="height: 400px; object-fit: cover;"

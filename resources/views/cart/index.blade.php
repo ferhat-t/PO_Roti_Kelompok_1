@@ -39,12 +39,21 @@
                             @php $total += $item['price'] * $item['quantity']; @endphp
                             
                             <div class="row mb-3 pb-3 border-bottom align-items-center">
-                                <!-- Product Image -->
+                                <!-- Product Image - PERBAIKAN DI SINI -->
                                 <div class="col-md-2">
-                                    <img src="{{ asset('images/products/' . $item['image']) }}" 
-                                         class="img-fluid rounded product-image-small" 
-                                         alt="{{ $item['name'] }}"
-                                         onerror="this.src='https://via.placeholder.com/80x80?text=Product'">
+                                    @if(isset($item['image']) && $item['image'])
+                                        <!-- Gunakan asset dengan storage -->
+                                        <img src="{{ asset('storage/' . $item['image']) }}" 
+                                             class="img-fluid rounded product-image-small" 
+                                             alt="{{ $item['name'] }}"
+                                             onerror="this.src='https://via.placeholder.com/100x100?text=No+Image'"
+                                             style="width: 100px; height: 100px; object-fit: cover;">
+                                    @else
+                                        <img src="https://via.placeholder.com/100x100?text=No+Image" 
+                                             class="img-fluid rounded product-image-small" 
+                                             alt="{{ $item['name'] }}"
+                                             style="width: 100px; height: 100px; object-fit: cover;">
+                                    @endif
                                 </div>
                                 
                                 <!-- Product Info -->

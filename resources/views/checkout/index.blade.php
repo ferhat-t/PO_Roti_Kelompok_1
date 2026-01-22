@@ -98,11 +98,20 @@
                         
                         <div class="d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
                             <div class="d-flex align-items-center">
-                                <img src="{{ asset('images/products/' . $item['image']) }}" 
-                                     class="rounded me-2" 
-                                     style="width: 50px; height: 50px; object-fit: cover;"
-                                     alt="{{ $item['name'] }}"
-                                     onerror="this.src='https://via.placeholder.com/50x50?text=Product'">
+                                <!-- FIX GAMBAR DI SINI -->
+                                @if(isset($item['image']) && $item['image'])
+                                    <img src="{{ asset('storage/' . $item['image']) }}" 
+                                         class="rounded me-2" 
+                                         style="width: 50px; height: 50px; object-fit: cover;"
+                                         alt="{{ $item['name'] }}"
+                                         onerror="this.src='https://via.placeholder.com/50x50?text=No+Image'">
+                                @else
+                                    <img src="https://via.placeholder.com/50x50?text=No+Image" 
+                                         class="rounded me-2" 
+                                         style="width: 50px; height: 50px; object-fit: cover;"
+                                         alt="{{ $item['name'] }}">
+                                @endif
+                                
                                 <div>
                                     <strong>{{ $item['name'] }}</strong><br>
                                     <small class="text-muted">
@@ -158,8 +167,13 @@
 <script>
 document.getElementById('checkout-form').addEventListener('submit', function(e) {
     // Optional: Add form validation here
-    if (!FormValidator.validateCheckout(this)) {
+    const phone = document.getElementById('phone').value;
+    
+    // Validasi nomor telepon
+    if (phone && !phone.match(/^[0-9]{10,15}$/)) {
+        alert('Nomor telepon harus berupa angka dan 10-15 digit');
         e.preventDefault();
+        return false;
     }
 });
 </script>

@@ -50,7 +50,11 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/orders/{order}/download', [AdminOrderController::class, 'download'])->name('orders.download');
 });
 
+    route::get('simlink', function () {
+        Artisan::call('storage:link');
+        return 'Symlink berhasil!';
 
+    });
 
 
 

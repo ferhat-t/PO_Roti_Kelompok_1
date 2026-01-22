@@ -79,25 +79,34 @@
                                    class="form-control @error('image') is-invalid @enderror" 
                                    id="image"
                                    name="image" 
-                                   accept="image/*">
+                                   accept="image/*"
+                                   onchange="previewImage(event)">
                             @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                             <small class="form-text text-muted d-block">
-                                Kosongkan jika tidak ingin mengubah gambar. Format: JPG, PNG, GIF. Maksimal 2MB.
+                                Kosongkan jika tidak ingin mengubah gambar. Format: JPG, PNG, GIF, WEBP. Maksimal 5MB.
                             </small>
                             
                             <!-- Current Image -->
                             <div class="mt-2">
                                 <p class="small mb-1">Gambar Saat Ini:</p>
-                                <img src="{{ asset('images/products/' . $product->image) }}" 
+                                {{-- ✅ FIXED: Ganti path dari images/products ke storage --}}
+                                <img src="{{ asset('storage/' . $product->image) }}" 
                                      width="150" 
                                      class="rounded shadow-sm"
                                      onerror="this.src='https://via.placeholder.com/150x150?text=No+Image'">
                             </div>
                             
                             <!-- Image Preview -->
-                            <img id="image-preview" src="#" alt="Preview" class="img-thumbnail mt-2" style="display: none; max-width: 200px;">
+                            <div class="mt-2" id="preview-container" style="display: none;">
+                                <p class="small mb-1">Preview Gambar Baru:</p>
+                                <img id="image-preview" 
+                                     src="#" 
+                                     alt="Preview" 
+                                     class="rounded shadow-sm" 
+                                     style="max-width: 200px;">
+                            </div>
                         </div>
 
                         <div class="d-flex gap-2">
@@ -114,5 +123,24 @@
         </div>
     </div>
 </div>
+
+<script>
+function previewImage(event) {
+    const preview = document.getElementById('image-preview');
+    const previewContainer = document.getElementById('preview-container');
+    const file = event.target.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            previewContainer.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+    } else {
+        previewContainer.style.display = 'none';
+    }
+}
+</script>
 
 @endsection

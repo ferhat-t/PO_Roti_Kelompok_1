@@ -84,15 +84,24 @@
                                    id="image"
                                    name="image" 
                                    accept="image/*"
+                                   onchange="previewImage(event)"
                                    required>
                             @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                             <small class="form-text text-muted">
-                                Format: JPG, PNG, GIF. Maksimal 2MB.
+                                Format: JPG, PNG, GIF, WEBP. Maksimal 5MB.
                             </small>
+                            
                             <!-- Image Preview -->
-                            <img id="image-preview" src="#" alt="Preview" class="img-thumbnail mt-2" style="display: none; max-width: 200px;">
+                            <div class="mt-2" id="preview-container" style="display: none;">
+                                <p class="small mb-1">Preview:</p>
+                                <img id="image-preview" 
+                                     src="#" 
+                                     alt="Preview" 
+                                     class="rounded shadow-sm" 
+                                     style="max-width: 200px;">
+                            </div>
                         </div>
 
                         <div class="d-flex gap-2">
@@ -109,5 +118,32 @@
         </div>
     </div>
 </div>
+
+<script>
+function previewImage(event) {
+    const preview = document.getElementById('image-preview');
+    const previewContainer = document.getElementById('preview-container');
+    const file = event.target.files[0];
+    
+    if (file) {
+        // Check file size (5MB = 5 * 1024 * 1024 bytes)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('Ukuran file terlalu besar! Maksimal 5MB.');
+            event.target.value = '';
+            previewContainer.style.display = 'none';
+            return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            previewContainer.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+    } else {
+        previewContainer.style.display = 'none';
+    }
+}
+</script>
 
 @endsection

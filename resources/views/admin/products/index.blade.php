@@ -37,7 +37,8 @@
                         @forelse($products as $product)
                         <tr>
                             <td>
-                                <img src="{{ asset('images/products/' . $product->image) }}" 
+                                {{-- ✅ FIXED: Ganti path dari images/products ke storage --}}
+                                <img src="{{ asset('storage/' . $product->image) }}" 
                                      width="60" height="60" 
                                      style="object-fit: cover;" 
                                      class="rounded"
@@ -73,7 +74,7 @@
                                     @method('DELETE')
                                     <button type="submit" 
                                             class="btn btn-sm btn-danger" 
-                                            data-confirm-delete="Yakin ingin menghapus produk ini?"
+                                            onclick="return confirm('Yakin ingin menghapus produk ini?')"
                                             title="Hapus">
                                         <i class="fas fa-trash"></i>
                                     </button>

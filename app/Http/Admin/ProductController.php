@@ -1,16 +1,15 @@
 <?php
-// app/Http/Controllers/Admin/ProductController.php
 
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
-    
-
     /**
      * Tampilkan semua produk
      */
@@ -38,12 +37,20 @@ class ProductController extends Controller
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:5120' // 5MB
         ]);
 
-        // Upload gambar
-        $imageName = time() . '.' . $request->image->extension();
-        $request->image->move(public_path('images/products'), $imageName);
+        // ✅ Upload ke storage/app/public/products
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            
+            // Generate nama file unik
+            $filename = time() . '_' . Str::slug($request->name) . '.' . $image->getClientOriginalExtension();
+            
+            // Simpan ke storage/app/public/products
+            $imagePath = $image->storeAs('products', $filename, 'public');
+        }
 
         // Simpan produk
         Product::create([
@@ -51,7 +58,7 @@ class ProductController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'stock' => $request->stock,
-            'image' => $imageName
+            'image' => $imagePath // Simpan path: products/xxx.jpg
         ]);
 
         return redirect()->route('admin.products.index')
@@ -76,23 +83,24 @@ class ProductController extends Controller
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120'
         ]);
 
         $data = $request->only(['name', 'description', 'price', 'stock']);
 
-        // Upload gambar baru jika ada
+        // ✅ Upload gambar baru jika ada
         if ($request->hasFile('image')) {
-            // Hapus gambar lama
-            $oldImagePath = public_path('images/products/' . $product->image);
-            if (file_exists($oldImagePath)) {
-                unlink($oldImagePath);
+            // Hapus gambar lama dari storage
+            if ($product->image && Storage::disk('public')->exists($product->image)) {
+                Storage::disk('public')->delete($product->image);
             }
 
             // Upload gambar baru
-            $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images/products'), $imageName);
-            $data['image'] = $imageName;
+            $image = $request->file('image');
+            $filename = time() . '_' . Str::slug($request->name) . '.' . $image->getClientOriginalExtension();
+            $imagePath = $image->storeAs('products', $filename, 'public');
+            
+            $data['image'] = $imagePath;
         }
 
         $product->update($data);
@@ -106,10 +114,9 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        // Hapus gambar
-        $imagePath = public_path('images/products/' . $product->image);
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
+        // ✅ Hapus gambar dari storage
+        if ($product->image && Storage::disk('public')->exists($product->image)) {
+            Storage::disk('public')->delete($product->image);
         }
 
         $product->delete();

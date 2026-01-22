@@ -30,7 +30,8 @@
         @forelse($products as $product)
             <div class="col-md-3 col-sm-6 mb-4">
                 <div class="card product-card h-100">
-                    <img src="{{ asset('images/products/' . $product->image) }}" 
+                    {{-- ✅ FIXED: Ganti path dari images/products ke storage --}}
+                    <img src="{{ asset('storage/' . $product->image) }}" 
                          class="card-img-top product-image" 
                          alt="{{ $product->name }}"
                          onerror="this.src='https://via.placeholder.com/300x250?text={{ urlencode($product->name) }}'">
